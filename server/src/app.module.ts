@@ -1,7 +1,8 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CorsMiddleware } from '@nest-middlewares/cors';
 
 import * as dotenv from 'dotenv';
 import { AuthModule } from './auth/auth.module';
@@ -26,4 +27,12 @@ dotenv.config();
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule{
+  configure(consumer: MiddlewareConsumer): any {
+    const corsOptions = {
+      origin: '*'
+    }
+    CorsMiddleware.configure(corsOptions);
+    consumer.apply(CorsMiddleware).forRoutes({ path: '*', method: RequestMethod.ALL });
+  }
+}
