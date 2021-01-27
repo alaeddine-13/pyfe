@@ -6,6 +6,7 @@ import { CorsMiddleware } from '@nest-middlewares/cors';
 
 import * as dotenv from 'dotenv';
 import { AuthModule } from './auth/auth.module';
+import { AnneeModule } from './annee/annee.module';
 dotenv.config();
 
 @Module({
@@ -13,7 +14,7 @@ dotenv.config();
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DATABASE_HOST,
-      port: 3305,
+      port: parseInt(process.env.DATABASE_PORT),
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PWD,
       database: process.env.DATABASE_NAME,
@@ -23,6 +24,7 @@ dotenv.config();
       synchronize: true,
     }),
     AuthModule,
+    AnneeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
