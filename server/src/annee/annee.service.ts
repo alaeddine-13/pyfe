@@ -30,7 +30,8 @@ export class AnneeService {
     return `This action updates a #${id} annee`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} annee`;
+  async remove(id: number) {
+    await this.anneeRepository.delete({id});
+    return { deleted: true };
   }
 }
