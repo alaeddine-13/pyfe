@@ -36,5 +36,20 @@ export class UserEntity extends Timestamp {
     default: UserRoleEnum.STUDENT
   })
   role: string;
+
+  @Column()
+  nom: string;
+
+  @Column()
+  prenom: string;
+
+  @Column()
+  telephone: string;
+
+  @Column()
+  filiere: string;
+
+  @Column('datetime')
+  datenaissance: Date;
 }
 
