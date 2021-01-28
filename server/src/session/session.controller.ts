@@ -18,8 +18,8 @@ export class SessionController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.sessionService.findOne(+id);
+  findById(@Param('id') id: string) {
+    return this.sessionService.findById(+id);
   }
 
   @Put(':id')

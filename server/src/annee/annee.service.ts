@@ -22,16 +22,17 @@ export class AnneeService {
     return this.anneeRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} annee`;
+  async findById(id: number) {
+    return await this.anneeRepository.findOne({ id });
   }
 
-  update(id: number, updateAnneeDto: UpdateAnneeDto) {
-    return `This action updates a #${id} annee`;
+  async update(id: number, updateAnneeDto: UpdateAnneeDto) {
+    await this.anneeRepository.update({ id }, updateAnneeDto);
+    return await this.anneeRepository.findOne({ id });
   }
 
   async remove(id: number) {
-    await this.anneeRepository.delete({id});
+    await this.anneeRepository.delete({ id });
     return { deleted: true };
   }
 }

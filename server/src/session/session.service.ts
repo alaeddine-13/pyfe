@@ -23,15 +23,17 @@ export class SessionService {
     return this.sessionRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} session`;
+  async findById(id: number) {
+    return await this.sessionRepository.findOne({ id });
   }
 
-  update(id: number, updateSessionDto: UpdateSessionDto) {
-    return `This action updates a #${id} session`;
+  async update(id: number, updateSessionDto: UpdateSessionDto) {
+    await this.sessionRepository.update({ id }, updateSessionDto);
+    return await this.sessionRepository.findOne({ id });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} session`;
+  async remove(id: number) {
+    await this.sessionRepository.delete({ id });
+    return { deleted: true };
   }
 }

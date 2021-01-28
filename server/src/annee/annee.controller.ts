@@ -21,8 +21,8 @@ export class AnneeController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.anneeService.findOne(+id);
+  findById(@Param('id') id: string) {
+    return this.anneeService.findById(+id);
   }
 
   @Put(':id')
