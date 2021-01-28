@@ -7,6 +7,7 @@ import { CorsMiddleware } from '@nest-middlewares/cors';
 import * as dotenv from 'dotenv';
 import { AuthModule } from './auth/auth.module';
 import { AnneeModule } from './annee/annee.module';
+import { SessionModule } from './session/session.module';
 dotenv.config();
 
 @Module({
@@ -25,6 +26,7 @@ dotenv.config();
     }),
     AuthModule,
     AnneeModule,
+    SessionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
