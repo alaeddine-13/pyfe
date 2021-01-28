@@ -2,7 +2,7 @@ export class Session {}
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { AnneeEntity } from '../../annee/entities/annee.entity';
 
-@Entity('annee')
+@Entity('session')
 export class SessionEntity {
     @PrimaryGeneratedColumn()
     id: number;
@@ -20,5 +20,5 @@ export class SessionEntity {
     fin: Date;
 
     @ManyToOne(type => AnneeEntity, annee => annee.id)
-    balance: AnneeEntity;
+    annee: AnneeEntity;
 }
