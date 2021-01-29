@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CrudService} from '../../services/crud.service';
-import {BASE_API, SESSION} from '../../globals/vars';
+import {ANNEE, BASE_API, SESSION} from '../../globals/vars';
+import {AnneeModel} from '../../models/annee.model';
 
 @Component({
   selector: 'app-session-form',
@@ -10,8 +11,8 @@ import {BASE_API, SESSION} from '../../globals/vars';
 })
 export class SessionFormComponent implements OnInit {
 
-// @ts-ignore
   sessionForm: FormGroup;
+  annees: AnneeModel[];
 
   constructor(
     private crudService: CrudService,
@@ -22,6 +23,20 @@ export class SessionFormComponent implements OnInit {
 
   ngOnInit() {
     this.initSessionForm();
+    this.annees = [];
+    this.getAnnees();
+  }
+
+  getAnnees() {
+    this.crudService.getAll(BASE_API + ANNEE).subscribe(
+      // @ts-ignore
+      (data: any[]) => {
+        this.annees = data;
+        console.log(data);
+      }, (error) => {
+        console.log(error);
+      }
+    );
   }
 
   onCreateClick() {

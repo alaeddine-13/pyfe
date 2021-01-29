@@ -14,6 +14,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {AnneeFormComponent} from './pages/annee-form/annee-form.component';
 import {SessionFormComponent} from './pages/session-form/session-form.component';
 import {UserFormComponent} from './pages/user-form/user-form.component';
+import {ProjetFormComponent} from './pages/projet-form/projet-form.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {UserFormComponent} from './pages/user-form/user-form.component';
     HeaderComponent,
     AnneeFormComponent,
     SessionFormComponent,
-    UserFormComponent
+    UserFormComponent,
+    ProjetFormComponent
   ],
   imports: [
     FormsModule,
@@ -37,4 +39,5 @@ import {UserFormComponent} from './pages/user-form/user-form.component';
   providers: [AuthHttpInterceptor],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
