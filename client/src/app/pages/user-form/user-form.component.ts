@@ -25,6 +25,8 @@ export class UserFormComponent implements OnInit {
   }
 
   onCreateClick() {
+    const x = Math.floor(Math.random() * Math.floor(128));
+    this.userForm.controls.salt.setValue(x);
     this.crudService.post(BASE_API + USER, this.userForm.value).subscribe(
       (data) => {
         console.log(data);
@@ -42,14 +44,11 @@ export class UserFormComponent implements OnInit {
       prenom: [null, Validators.compose([
         Validators.required
       ])],
-      naissance: [null, Validators.compose([
-        Validators.required
-      ])],
       username: [null, Validators.compose([
         Validators.required
       ])],
       email: [null, Validators.compose([
-        Validators.required
+        Validators.required, Validators.email
       ])],
       password: [null, Validators.compose([
         Validators.required
@@ -64,6 +63,9 @@ export class UserFormComponent implements OnInit {
         Validators.required
       ])],
       filiere: [null, Validators.compose([
+        Validators.required
+      ])],
+      salt: [null, Validators.compose([
         Validators.required
       ])],
     });

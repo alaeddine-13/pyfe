@@ -13,7 +13,7 @@
       <div class="container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>
-          <button (click)="onCreateClick()" class="contact2-form-btn">
+          <button [disabled]="!anneeForm.valid" class="contact2-form-btn">
             Créer l'année universitaire
           </button>
         </div>
