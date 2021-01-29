@@ -18,8 +18,8 @@ export class SoutenanceController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.soutenanceService.findOne(+id);
+  findById(@Param('id') id: string) {
+    return this.soutenanceService.findById(+id);
   }
 
   @Put(':id')

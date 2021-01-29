@@ -3,8 +3,8 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 export enum UserRoleEnum {
   ADMIN = 'admin',
-  STUDENT = 'student',
-  PROFESSOR = 'professor',
+  ETUDIANT = 'etudiant',
+  PROFESSEUR = 'professeur',
 }
 
 @Entity('user')
@@ -33,7 +33,7 @@ export class UserEntity extends Timestamp {
   @Column({
     type: 'enum',
     enum: UserRoleEnum,
-    default: UserRoleEnum.STUDENT
+    default: UserRoleEnum.PROFESSEUR
   })
   role: string;
 
