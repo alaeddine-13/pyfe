@@ -16,6 +16,7 @@ export class SessionEntity {
     @Column('datetime')
     debut: Date;
 
+
     @Column('datetime')
     fin: Date;
 

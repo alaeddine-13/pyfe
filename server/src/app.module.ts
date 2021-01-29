@@ -8,6 +8,8 @@ import * as dotenv from 'dotenv';
 import { AuthModule } from './auth/auth.module';
 import { AnneeModule } from './annee/annee.module';
 import { SessionModule } from './session/session.module';
+import { ProjetModule } from './projet/projet.module';
+import { SoutenanceModule } from './soutenance/soutenance.module';
 dotenv.config();
 
 @Module({
@@ -27,6 +29,8 @@ dotenv.config();
     AuthModule,
     AnneeModule,
     SessionModule,
+    ProjetModule,
+    SoutenanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
