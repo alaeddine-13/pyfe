@@ -16,6 +16,14 @@ export class AuthController {
     return this.authService.register(userSignupData);
   }
 
+  @Post('users')
+  bulkAdd(
+    @Body() data: UserSignupDto[]
+  ): Promise<Partial<UserEntity>[]> {
+    console.log(data)
+    return this.authService.bulkAdd(data);
+  }
+
   @Post('signin')
   login(
     @Body() credentials: UserSignupDto

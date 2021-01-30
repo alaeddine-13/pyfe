@@ -7,6 +7,14 @@ export enum UserRoleEnum {
   PROFESSEUR = 'professeur',
 }
 
+export enum FiliereEnum {
+  GL = 'Genie Logiciel',
+  IIA = 'Informatique Industriel Et Automatique',
+  IMI = 'Instrumentation Et Maintenance Industrielle',
+  RT = 'Resaux Et Telecommunications',
+  NULL = ''
+}
+
 @Entity('user')
 export class UserEntity extends Timestamp {
 
@@ -33,7 +41,7 @@ export class UserEntity extends Timestamp {
   @Column({
     type: 'enum',
     enum: UserRoleEnum,
-    default: UserRoleEnum.PROFESSEUR
+    default: UserRoleEnum.ETUDIANT
   })
   role: string;
 
@@ -46,7 +54,11 @@ export class UserEntity extends Timestamp {
   @Column()
   telephone: string;
 
-  @Column()
+  @Column({
+    type: 'enum',
+    enum: FiliereEnum,
+    default: FiliereEnum.NULL
+  })
   filiere: string;
 
   @Column('datetime')
