@@ -25,7 +25,7 @@ export class ProjetDisplayComponent implements OnInit {
   }
 
   getProjet() {
-    this.crudService.getAll(BASE_API + PROJET + '/' + this.id).subscribe(
+    this.crudService.getAll(BASE_API + PROJET + '/formatted/' + this.id).subscribe(
       // @ts-ignore
       (data: any[]) => {
         this.projet = data;

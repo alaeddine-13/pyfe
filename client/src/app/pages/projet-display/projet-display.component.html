@@ -1,16 +1,22 @@
 <div class="container-contact2">
   <div class="wrap-contact2">
     <h2 class="contact2-form-title">
-      {{projet.sujet}}
+      Projet: {{projet.sujet}}
     </h2>
     <div>
-      {{projet.statut}}
+      Statut: {{projet.statut}}
     </div>
     <div>
-      {{projet.societe}}
+      Entreprise: {{projet.entreprise}}
     </div>
-    <div>
-      {{id}}
+    <div *ngIf="projet.date">
+      Date: {{projet.date}}
+    </div>
+    <div *ngIf="projet.rapport">
+      Rapport: {{projet.rapport}}
+    </div>
+    <div *ngIf="projet.salle">
+      Salle: {{projet.salle}}
     </div>
 
   </div>
