@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CrudService} from '../../services/crud.service';
 import {BASE_API, USER} from '../../globals/vars';
+import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -12,9 +14,17 @@ export class UserFormComponent implements OnInit {
 
   // @ts-ignore
   userForm: FormGroup;
+  filieres : String[] = [
+    'Genie Logiciel',
+    'Informatique Industriel Et Automatique',
+    'Instrumentation Et Maintenance Industrielle',
+    'Resaux Et Telecommunications',
+  ]
 
   constructor(
-    private crudService: CrudService,
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private router: Router,
     private fb: FormBuilder
   ) {
 
@@ -26,12 +36,16 @@ export class UserFormComponent implements OnInit {
 
   onCreateClick() {
     const x = Math.floor(Math.random() * Math.floor(128));
-    this.userForm.controls.salt.setValue(x);
-    this.crudService.post(BASE_API + USER, this.userForm.value).subscribe(
+    this.authService.createUser(this.userForm.value).subscribe(
       (data) => {
         console.log(data);
+        this.toastrService.success("User created successfully");
+        this.router.navigate([""]);
+
       }, (error) => {
         console.log(error);
+        this.toastrService.error("Please verify your data");
+
       }
     );
   }
@@ -63,9 +77,6 @@ export class UserFormComponent implements OnInit {
         Validators.required
       ])],
       filiere: [null, Validators.compose([
-        Validators.required
-      ])],
-      salt: [null, Validators.compose([
         Validators.required
       ])],
     });

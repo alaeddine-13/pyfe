@@ -24,7 +24,10 @@ export class AuthService {
   }
 
   createUsers(users: UserModel[]): Observable<any> {
-    console.log(JSON.stringify(users))
     return this.http.post<any>(`${AUTH_API}/users`, users);
+  }
+
+  createUser(user: any): Observable<any> {
+    return this.http.post<any>(`${AUTH_API}/signup`, user);
   }
 }
