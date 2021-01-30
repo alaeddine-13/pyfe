@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="col-md-12 offset-md-1 mt-2">
+    <h2 class="card-title"><strong>Liste des soutenances</strong></h2>
+  </div>
+  <br><br>
+  <div class="table-responsive">
+    <table class="table table-dark table-bordered table-hover">
+      <tr>
+
+        <th style="width: 20%">Salle</th>
+        <th style="width: 20%">Date</th>
+        <th style="width: 20%">Session</th>
+        <th style="width: 30%">Projet</th>
+        <th style="width: 10%">Rapport</th>
+
+      </tr>
+      <tbody>
+      <tr *ngFor="let soutenance of soutenances">
+
+        <td>{{ soutenance.salle}}</td>
+        <td>{{ soutenance.date }}</td>
+        <td>{{ soutenance.sessionId }}</td>
+        <td>{{ soutenance.projetId}}</td>
+        <td>{{ soutenance.rapport }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

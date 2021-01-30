@@ -5,3 +5,4 @@ export const ANNEE = 'annee';
 export const SESSION = 'session';
 export const USER = 'user';
 export const PROJET = 'projet';
+export const SOUTENANCE = 'soutenance';
