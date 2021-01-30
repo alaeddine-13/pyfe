@@ -17,6 +17,9 @@ import {UserFormComponent} from './pages/user-form/user-form.component';
 import {ProjetFormComponent} from './pages/projet-form/projet-form.component';
 import {CreateUsersComponent} from './pages/create-users/create-users.component';
 import {NzSelectModule} from 'ng-zorro-antd/select';
+import {SessionListComponent} from './pages/session-list/session-list.component';
+import {AnneeListComponent} from './pages/annee-list/annee-list.component';
+import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.component';
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import {NzSelectModule} from 'ng-zorro-antd/select';
     UserFormComponent,
     ProjetFormComponent,
     CreateUsersComponent,
+    SessionListComponent,
+    AnneeListComponent,
+    SoutenanceListComponent,
   ],
   imports: [
     FormsModule,
