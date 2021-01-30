@@ -27,6 +27,10 @@ export class ProjetService {
         return await this.projetRepository.findOne({id});
     }
 
+    async findByUser(id: number) {
+        return await this.projetRepository.find({id});
+    }
+
     async update(id: number, updateProjetDto: UpdateProjetDto) {
         await this.projetRepository.update({id}, updateProjetDto);
         return await this.projetRepository.findOne({id});
