@@ -35,6 +35,6 @@ export class ProjetEntity {
     })
     statut: string;
 
-    @OneToMany(() => SoutenanceEntity, soutenance => soutenance.projet)
-    soutenances: SoutenanceEntity[];
+    @OneToOne(() => SoutenanceEntity, soutenance => soutenance.projet)
+    soutenance: SoutenanceEntity;
 }
