@@ -36,5 +36,6 @@ export class ProjetEntity {
     statut: string;
 
     @OneToOne(() => SoutenanceEntity, soutenance => soutenance.projet)
+    @JoinColumn()
     soutenance: SoutenanceEntity;
 }
