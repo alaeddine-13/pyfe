@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, HttpStatus } from '@nestjs/common';
-import { AnneeService } from './annee.service';
-import { CreateAnneeDto } from './dto/create-annee.dto';
-import { UpdateAnneeDto } from './dto/update-annee.dto';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
+import {AnneeService} from './annee.service';
+import {CreateAnneeDto} from './dto/create-annee.dto';
+import {UpdateAnneeDto} from './dto/update-annee.dto';
 
 @Controller('annee')
 export class AnneeController {
@@ -14,10 +14,7 @@ export class AnneeController {
 
   @Get()
   async findAll() {
-    return {
-      statusCode: HttpStatus.OK,
-      data: await this.anneeService.findAll(),
-    };
+      return await this.anneeService.findAll();
   }
 
   @Get(':id')
