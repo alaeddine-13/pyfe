@@ -23,6 +23,11 @@ export class ProjetController {
         return this.projetService.findById(+id);
     }
 
+    @Get('formatted/:id')
+    findByIdFormatted(@Param('id') id: string) {
+        return this.projetService.findByIdFormatted(+id);
+    }
+
     @Put(':id')
     update(@Param('id') id: string, @Body() updateProjetDto: UpdateProjetDto) {
         return this.projetService.update(+id, updateProjetDto);

@@ -25,7 +25,7 @@ dotenv.config();
       entities: [
         "dist/**/*.entity{.ts,.js}"
       ],
-      synchronize: true,
+      synchronize: true
     }),
     AuthModule,
     AnneeModule,
