@@ -1,7 +1,7 @@
-import {UserEntity, UserRoleEnum} from "../../auth/entities/user.entity";
+import {UserEntity} from '../../auth/entities/user.entity';
 
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne, JoinColumn} from 'typeorm';
-import {SoutenanceEntity} from "../../soutenance/entities/soutenance.entity";
+import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {SoutenanceEntity} from '../../soutenance/entities/soutenance.entity';
 
 export enum StatutProjetEnum {
     VALIDE = 'valide',
@@ -17,11 +17,11 @@ export class ProjetEntity {
     @Column()
     sujet: string;
 
-    @OneToOne(()=> UserEntity)
+    @OneToOne(() => UserEntity)
     @JoinColumn()
     etudiant: UserEntity;
 
-    @OneToOne(()=> UserEntity)
+    @OneToOne(() => UserEntity)
     @JoinColumn()
     encadrant: UserEntity;
 
@@ -35,6 +35,6 @@ export class ProjetEntity {
     })
     statut: string;
 
-    @OneToMany( ()=> SoutenanceEntity, soutenance => soutenance.projet)
+    @OneToMany(() => SoutenanceEntity, soutenance => soutenance.projet)
     soutenances: SoutenanceEntity[];
 }

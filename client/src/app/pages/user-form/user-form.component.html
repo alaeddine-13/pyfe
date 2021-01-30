@@ -7,16 +7,18 @@
 
       <div class="wrap-input2 validate-input">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" id="etudiant" name="inlineRadioOptions" type="radio" value="etudiant" formControlName="role">
+          <input class="form-check-input" formControlName="role" id="etudiant" name="inlineRadioOptions" type="radio"
+                 value="etudiant">
           <label class="form-check-label" for="etudiant">Etudiant</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" id="enseignant" name="inlineRadioOptions" type="radio"
-                 value="enseignant" formControlName="role">
+          <input class="form-check-input" formControlName="role" id="enseignant" name="inlineRadioOptions"
+                 type="radio" value="enseignant">
           <label class="form-check-label" for="enseignant">Enseignant</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" id="admin" name="inlineRadioOptions" type="radio" value="admin" formControlName="role">
+          <input class="form-check-input" formControlName="role" id="admin" name="inlineRadioOptions" type="radio"
+                 value="admin">
           <label class="form-check-label" for="admin">Admin</label>
         </div>
       </div>
@@ -42,11 +44,11 @@
         <span class="focus-input2"></span>
       </div>
 
-      <div class="wrap-input2 validate-input" *ngIf="userForm.value.role=='etudiant'">
+      <div *ngIf="userForm.value.role=='etudiant'" class="wrap-input2 validate-input">
         <label class="form-check-label" for="filiere">Filière</label>
         <select formControlName="filiere" id="filiere">
           <option *ngFor="let c of filieres" [ngValue]="c">{{ c }}</option>
-      </select>
+        </select>
         <span class="focus-input2"></span>
       </div>
 

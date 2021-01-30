@@ -1,15 +1,16 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { CorsMiddleware } from '@nest-middlewares/cors';
+import {MiddlewareConsumer, Module, NestModule, RequestMethod} from '@nestjs/common';
+import {AppController} from './app.controller';
+import {AppService} from './app.service';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {CorsMiddleware} from '@nest-middlewares/cors';
 
 import * as dotenv from 'dotenv';
-import { AuthModule } from './auth/auth.module';
-import { AnneeModule } from './annee/annee.module';
-import { SessionModule } from './session/session.module';
-import { ProjetModule } from './projet/projet.module';
-import { SoutenanceModule } from './soutenance/soutenance.module';
+import {AuthModule} from './auth/auth.module';
+import {AnneeModule} from './annee/annee.module';
+import {SessionModule} from './session/session.module';
+import {ProjetModule} from './projet/projet.module';
+import {SoutenanceModule} from './soutenance/soutenance.module';
+
 dotenv.config();
 
 @Module({

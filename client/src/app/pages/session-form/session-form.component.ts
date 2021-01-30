@@ -32,7 +32,7 @@ export class SessionFormComponent implements OnInit {
       // @ts-ignore
       (data: any[]) => {
         this.annees = data;
-        console.log(data);
+        console.log(this.annees);
       }, (error) => {
         console.log(error);
       }

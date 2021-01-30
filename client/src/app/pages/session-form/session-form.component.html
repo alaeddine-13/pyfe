@@ -26,20 +26,20 @@
       </div>
 
       <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="annee" placeholder="Année universitaire">
-        <span class="focus-input2"></span>
-      </div>
 
-      <div class="dropdown wrap-input2 validate-input">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle input2"
-                data-toggle="dropdown" id="dropdownMenuButton" type="button">
-          Dropdown button
-        </button>
-        <div aria-labelledby="dropdownMenuButton" class="dropdown-menu wrap-input2">
-          <a class="dropdown-item input2" href="#">Action</a>
-          <a class="dropdown-item input2" href="#">Another action</a>
-          <a class="dropdown-item input2" href="#">Something else here</a>
-        </div>
+        <nz-select
+
+          formControlName="annee"
+          nzAllowClear
+          nzPlaceHolder="Choisir une année universitaire">
+
+          <nz-option *ngFor="let annee of annees"
+                     [nzLabel]="annee.annee"
+                     [nzValue]="annee.id">
+          </nz-option>
+        </nz-select>
+
+
       </div>
 
       <div class="container-contact2-form-btn">

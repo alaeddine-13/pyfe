@@ -1,2 +1,2 @@
-<input type="file" (change)="handleFileSelect($event)" />
-<button type="submit" [disabled]="!buffer" (click)="submit()">submit</button>
+<input (change)="handleFileSelect($event)" type="file"/>
+<button (click)="submit()" [disabled]="!buffer" type="submit">submit</button>

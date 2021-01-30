@@ -1,5 +1,5 @@
-import { Timestamp } from '../../generics/timestamp';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {Timestamp} from '../../generics/timestamp';
+import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
 export enum UserRoleEnum {
   ADMIN = 'admin',
@@ -8,11 +8,11 @@ export enum UserRoleEnum {
 }
 
 export enum FiliereEnum {
-  GL = 'Genie Logiciel',
-  IIA = 'Informatique Industriel Et Automatique',
-  IMI = 'Instrumentation Et Maintenance Industrielle',
-  RT = 'Resaux Et Telecommunications',
-  NULL = ''
+    GL = 'Genie Logiciel',
+    IIA = 'Informatique Industriel Et Automatique',
+    IMI = 'Instrumentation Et Maintenance Industrielle',
+    RT = 'Resaux Et Telecommunications',
+    NULL = ''
 }
 
 @Entity('user')
@@ -41,7 +41,7 @@ export class UserEntity extends Timestamp {
   @Column({
     type: 'enum',
     enum: UserRoleEnum,
-    default: UserRoleEnum.ETUDIANT
+      default: UserRoleEnum.ETUDIANT
   })
   role: string;
 
@@ -54,11 +54,11 @@ export class UserEntity extends Timestamp {
   @Column()
   telephone: string;
 
-  @Column({
-    type: 'enum',
-    enum: FiliereEnum,
-    default: FiliereEnum.NULL
-  })
+    @Column({
+        type: 'enum',
+        enum: FiliereEnum,
+        default: FiliereEnum.NULL
+    })
   filiere: string;
 
   @Column('datetime')

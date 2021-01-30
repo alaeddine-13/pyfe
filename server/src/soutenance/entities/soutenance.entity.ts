@@ -1,7 +1,6 @@
-import {Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
-import {UserEntity} from "../../auth/entities/user.entity";
-import {ProjetEntity} from "../../projet/entities/projet.entity";
-import {SessionEntity} from "../../session/entities/session.entity";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {ProjetEntity} from '../../projet/entities/projet.entity';
+import {SessionEntity} from '../../session/entities/session.entity';
 
 @Entity('soutenance')
 export class SoutenanceEntity {

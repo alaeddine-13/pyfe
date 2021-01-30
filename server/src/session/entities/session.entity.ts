@@ -1,6 +1,8 @@
-export class Session {}
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { AnneeEntity } from '../../annee/entities/annee.entity';
+export class Session {
+}
+
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {AnneeEntity} from '../../annee/entities/annee.entity';
 
 @Entity('session')
 export class SessionEntity {

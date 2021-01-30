@@ -1,6 +1,6 @@
-import { UserSigninDto } from "./user-signin.dto";
-import { IsEmail, IsNotEmpty, IsEnum, IsPhoneNumber, IsDateString, IsDate, IsString } from "class-validator";
-import { UserRoleEnum, FiliereEnum } from "../entities/user.entity";
+import {UserSigninDto} from './user-signin.dto';
+import {IsDate, IsEmail, IsEnum, IsNotEmpty, IsPhoneNumber, IsString} from 'class-validator';
+import {FiliereEnum, UserRoleEnum} from '../entities/user.entity';
 
 export class UserSignupDto  extends UserSigninDto{
     @IsEmail()

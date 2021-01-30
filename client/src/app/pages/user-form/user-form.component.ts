@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BASE_API, USER} from '../../globals/vars';
-import { AuthService } from 'src/app/services/auth.service';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import {AuthService} from 'src/app/services/auth.service';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -14,12 +13,12 @@ export class UserFormComponent implements OnInit {
 
   // @ts-ignore
   userForm: FormGroup;
-  filieres : String[] = [
+  filieres: String[] = [
     'Genie Logiciel',
     'Informatique Industriel Et Automatique',
     'Instrumentation Et Maintenance Industrielle',
     'Resaux Et Telecommunications',
-  ]
+  ];
 
   constructor(
     private authService: AuthService,
@@ -39,12 +38,12 @@ export class UserFormComponent implements OnInit {
     this.authService.createUser(this.userForm.value).subscribe(
       (data) => {
         console.log(data);
-        this.toastrService.success("User created successfully");
-        this.router.navigate([""]);
+        this.toastrService.success('User created successfully');
+        this.router.navigate(['']);
 
       }, (error) => {
         console.log(error);
-        this.toastrService.error("Please verify your data");
+        this.toastrService.error('Please verify your data');
 
       }
     );

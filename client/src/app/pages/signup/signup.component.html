@@ -1,39 +1,38 @@
 <form #signupForm="ngForm">
-    username:
-    <input
-      username
-      type="text"
-      class="form-control"
-      ngModel
-      name="username"
-      required
+  username:
+  <input
       #usernameInput="ngModel"
-    />
-    email:
-    <input
-      email
-      type="email"
       class="form-control"
+      name="username"
       ngModel
-      name="email"
       required
+      type="text"
+      username
+  />
+  email:
+  <input
       #emailInput="ngModel"
-    />
-    password:
-    <input
-      type="password"
-      minlength="4"
       class="form-control"
+      email
+      name="email"
+      ngModel
+      required
+      type="email"
+  />
+  password:
+  <input
+      #pwdInput="ngModel"
+      class="form-control"
+      minlength="4"
       name="password"
       ngModel
       required
-      #pwdInput="ngModel"
-    />
-  </form>
-  <button
-    (click)="signup(signupForm)"
-    class="btn btn-success"
-  >
-    Signup
-  </button>
-  
+      type="password"
+  />
+</form>
+<button
+  (click)="signup(signupForm)"
+  class="btn btn-success"
+>
+  Signup
+</button>

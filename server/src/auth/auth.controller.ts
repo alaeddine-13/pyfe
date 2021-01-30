@@ -1,7 +1,7 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { UserEntity } from './entities/user.entity';
-import { UserSignupDto } from './dto/user-signup.dto';
+import {Body, Controller, Post} from '@nestjs/common';
+import {AuthService} from './auth.service';
+import {UserEntity} from './entities/user.entity';
+import {UserSignupDto} from './dto/user-signup.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -16,13 +16,13 @@ export class AuthController {
     return this.authService.register(userSignupData);
   }
 
-  @Post('users')
-  bulkAdd(
-    @Body() data: UserSignupDto[]
-  ): Promise<Partial<UserEntity>[]> {
-    console.log(data)
-    return this.authService.bulkAdd(data);
-  }
+    @Post('users')
+    bulkAdd(
+        @Body() data: UserSignupDto[]
+    ): Promise<Partial<UserEntity>[]> {
+        console.log(data);
+        return this.authService.bulkAdd(data);
+    }
 
   @Post('signin')
   login(

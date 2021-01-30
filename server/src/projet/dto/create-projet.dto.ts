@@ -1,5 +1,5 @@
-import { UserEntity } from './../../auth/entities/user.entity';
-import { SoutenanceEntity } from './../../soutenance/entities/soutenance.entity';
+import {UserEntity} from './../../auth/entities/user.entity';
+import {SoutenanceEntity} from './../../soutenance/entities/soutenance.entity';
 
 export class CreateProjetDto {
     id: number;
