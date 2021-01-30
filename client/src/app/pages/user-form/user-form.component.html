@@ -6,6 +6,22 @@
       </h2>
 
       <div class="wrap-input2 validate-input">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" id="etudiant" name="inlineRadioOptions" type="radio" value="etudiant" formControlName="role">
+          <label class="form-check-label" for="etudiant">Etudiant</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" id="enseignant" name="inlineRadioOptions" type="radio"
+                 value="enseignant" formControlName="role">
+          <label class="form-check-label" for="enseignant">Enseignant</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" id="admin" name="inlineRadioOptions" type="radio" value="admin" formControlName="role">
+          <label class="form-check-label" for="admin">Admin</label>
+        </div>
+      </div>
+
+      <div class="wrap-input2 validate-input">
         <input class="input2" formControlName="nom" placeholder="Nom de l'utilisateur" type="text">
         <span class="focus-input2"></span>
       </div>
@@ -15,6 +31,7 @@
         <span class="focus-input2"></span>
       </div>
 
+      <!-- TODO change input to date input -->
       <div class="wrap-input2 validate-input">
         <input class="input2" formControlName="datenaissance" placeholder="Date de naissance" type="text">
         <span class="focus-input2"></span>
@@ -25,8 +42,11 @@
         <span class="focus-input2"></span>
       </div>
 
-      <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="filiere" placeholder="Filière" type="text">
+      <div class="wrap-input2 validate-input" *ngIf="userForm.value.role=='etudiant'">
+        <label class="form-check-label" for="filiere">Filière</label>
+        <select formControlName="filiere" id="filiere">
+          <option *ngFor="let c of filieres" [ngValue]="c">{{ c }}</option>
+      </select>
         <span class="focus-input2"></span>
       </div>
 
@@ -45,27 +65,12 @@
         <span class="focus-input2"></span>
       </div>
 
-      <div class="wrap-input2 validate-input">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" id="etudiant" name="inlineRadioOptions" type="radio" value="etudiant">
-          <label class="form-check-label" for="etudiant">Etudiant</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" id="enseignant" name="inlineRadioOptions" type="radio"
-                 value="enseignant">
-          <label class="form-check-label" for="enseignant">Enseignant</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" id="admin" name="inlineRadioOptions" type="radio" value="admin">
-          <label class="form-check-label" for="admin">Admin</label>
-        </div>
-      </div>
-
       <div class="container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>
-          <button [disabled]="userForm.valid" class="contact2-form-btn">
-            Créer la session
+          <!-- TODO: fix the validator and re-add the disabled attribute -->
+          <button class="contact2-form-btn">
+            Créer l'utilisateur
           </button>
         </div>
       </div>

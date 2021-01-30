@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { UserSignupDto } from './dto/user-signup.dto';
 import { UserSigninDto } from './dto/user-signin.dto';
+
 @Injectable()
 export class AuthService {
 
@@ -25,6 +26,7 @@ export class AuthService {
     try{
       await this.userRepositor.save(user);
     } catch (e) {
+      console.log(e);
       throw new ConflictException(`username and email must be unique`);
     }
     return {
@@ -33,6 +35,14 @@ export class AuthService {
       email: user.email,
       role: user.role
     };
+  }
+
+  async bulkAdd(data: UserSignupDto[]): Promise<Partial<UserEntity>[]> {
+    const results = [];
+    for(let i = 0; i<data.length; i++){
+      results.push(await this.register(data[i]))
+    }
+    return results;
   }
 
   async login(credentials: UserSigninDto) {
