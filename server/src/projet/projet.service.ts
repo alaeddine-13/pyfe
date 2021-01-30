@@ -58,6 +58,6 @@ export class ProjetService {
             .innerJoin('projet.encadrant', 'encadrant')
             .innerJoin('projet.etudiant', 'etudiant')
             .innerJoin('projet.soutenance', 'soutenance')
-            .getRawMany();
+            .getRawOne();
     }
 }
