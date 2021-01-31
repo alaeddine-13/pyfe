@@ -1,1 +1,24 @@
-<p>projet-item works!</p>
+<div class="container-contact2">
+  <div class="wrap-contact2">
+    <h2 class="contact2-form-title">
+      Projet: {{projet.sujet}}
+    </h2>
+    <div>
+      Statut: {{projet.statut}}
+    </div>
+    <div>
+      Société: {{projet.societe}}
+    </div>
+    <div *ngIf="projet.date">
+      Date: {{projet.date}}
+    </div>
+    <div *ngIf="projet.rapport">
+      Rapport: {{projet.rapport}}
+    </div>
+    <div *ngIf="projet.salle">
+      Salle: {{projet.salle}}
+    </div>
+
+  </div>
+</div>
+

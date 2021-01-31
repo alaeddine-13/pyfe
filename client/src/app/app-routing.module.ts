@@ -10,19 +10,20 @@ import {ProjetItemComponent} from './components/projet-item/projet-item.componen
 import {AnneeListComponent} from './pages/annee-list/annee-list.component';
 import {SessionListComponent} from './pages/session-list/session-list.component';
 import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.component';
+import {ProjetDisplayComponent} from './pages/projet-display/projet-display.component';
+import {UserDisplayComponent} from './pages/user-display/user-display.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'annee', component: AnneeFormComponent},
   {path: 'session', component: SessionFormComponent},
-  {path: 'user', component: UserFormComponent},
-  {path: 'projet', component: ProjetFormComponent},
+  {path: 'user-edit', component: UserFormComponent},
+  {path: 'projet-edit', component: ProjetFormComponent},
   {path: 'createUsers', component: CreateUsersComponent},
   {path: 'projet-item', component: ProjetItemComponent},
-  {path: 'annees', component: AnneeListComponent},
-  {path: 'sessions', component: SessionListComponent},
-  {path: 'soutenances', component: SoutenanceListComponent}
-
+  {path: 'soutenances', component: SoutenanceListComponent},
+  {path: 'projet/:id', component: ProjetDisplayComponent},
+  {path: 'user/:id', component: UserDisplayComponent},
 ];
 /*   { path: '**', component: NF404Component }, */
 @NgModule({
