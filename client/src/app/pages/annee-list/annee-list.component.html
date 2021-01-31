@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="col-md-12 offset-md-1 mt-2">
+    <h3 class="card-title"><strong>Liste des années universitaires</strong></h3>
+  </div>
+  <br><br>
+  <div class="table-responsive">
+    <table class="table table-dark table-bordered table-hover">
+      <tr>
+
+        <th>Année universitaire</th>
+
+      </tr>
+      <tbody>
+      <tr *ngFor="let annee of annees">
+
+        <th> {{annee.annee}}</th>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

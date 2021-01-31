@@ -7,6 +7,9 @@ import {UserFormComponent} from './pages/user-form/user-form.component';
 import {ProjetFormComponent} from './pages/projet-form/projet-form.component';
 import {CreateUsersComponent} from './pages/create-users/create-users.component';
 import {ProjetItemComponent} from './components/projet-item/projet-item.component';
+import {AnneeListComponent} from './pages/annee-list/annee-list.component';
+import {SessionListComponent} from './pages/session-list/session-list.component';
+import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,6 +19,10 @@ const routes: Routes = [
   {path: 'projet', component: ProjetFormComponent},
   {path: 'createUsers', component: CreateUsersComponent},
   {path: 'projet-item', component: ProjetItemComponent},
+  {path: 'annees', component: AnneeListComponent},
+  {path: 'sessions', component: SessionListComponent},
+  {path: 'soutenances', component: SoutenanceListComponent}
+
 ];
 /*   { path: '**', component: NF404Component }, */
 @NgModule({
