@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {ProjetEntity} from '../../projet/entities/projet.entity';
 import {SessionEntity} from '../../session/entities/session.entity';
 
@@ -19,6 +19,6 @@ export class SoutenanceEntity {
     @ManyToOne(() => SessionEntity)
     session: SessionEntity;
 
-    @ManyToOne(() => ProjetEntity, projet => projet.soutenances)
+    @OneToOne(() => ProjetEntity, projet => projet.soutenance)
     projet: ProjetEntity;
 }
