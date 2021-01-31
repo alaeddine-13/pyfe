@@ -20,6 +20,9 @@ import {NzSelectModule} from 'ng-zorro-antd/select';
 import {SessionListComponent} from './pages/session-list/session-list.component';
 import {AnneeListComponent} from './pages/annee-list/annee-list.component';
 import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.component';
+import { ProjetDisplayComponent } from './pages/projet-display/projet-display.component';
+import { UserDisplayComponent } from './pages/user-display/user-display.component';
+import {ProjetItemComponent} from "./components/projet-item/projet-item.component";
 
 
 @NgModule({
@@ -35,6 +38,9 @@ import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.c
     SessionListComponent,
     AnneeListComponent,
     SoutenanceListComponent,
+    ProjetDisplayComponent,
+    UserDisplayComponent,
+    ProjetItemComponent,
   ],
   imports: [
     FormsModule,
