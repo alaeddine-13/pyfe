@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {BASE_API, PROJET, USER} from "../../globals/vars";
+import {BASE_API, USER} from "../../globals/vars";
 import {CrudService} from '../../services/crud.service';
+import { UserModel } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-user-display',
@@ -11,7 +12,7 @@ import {CrudService} from '../../services/crud.service';
 export class UserDisplayComponent implements OnInit {
 
   id: number;
-  user: any;
+  user: UserModel;
 
   constructor(
     private crudService: CrudService,
@@ -20,14 +21,14 @@ export class UserDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    this.user = {};
+    this.user = new UserModel();
     this.getUser();
   }
 
   getUser() {
-    this.crudService.getAll(BASE_API + PROJET + '/' + this.id).subscribe(
+    this.crudService.getAll(BASE_API + USER + '/' + this.id).subscribe(
       // @ts-ignore
-      (data: any[]) => {
+      (data: UserModel) => {
         this.user = data;
         console.log(this.user);
       }, (error) => {

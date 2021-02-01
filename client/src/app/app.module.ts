@@ -23,6 +23,7 @@ import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.c
 import { ProjetDisplayComponent } from './pages/projet-display/projet-display.component';
 import { UserDisplayComponent } from './pages/user-display/user-display.component';
 import {ProjetItemComponent} from "./components/projet-item/projet-item.component";
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {ProjetItemComponent} from "./components/projet-item/projet-item.componen
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    NzSelectModule
+    NzSelectModule,
+    MatCardModule
   ],
   providers: [AuthHttpInterceptor],
   bootstrap: [AppComponent]

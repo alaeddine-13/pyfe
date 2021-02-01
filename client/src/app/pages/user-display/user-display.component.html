@@ -1,11 +1,17 @@
-<div class="container-contact2">
-  <div class="wrap-contact2">
-    <h2 class="contact2-form-title">
-      {{user.role}}
-    </h2>
-    <app-projet-item></app-projet-item>
-
-
-  </div>
-</div>
-
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="avatar"></div>
+    <mat-card-title>{{user.username}} ({{user.role}})</mat-card-title>
+    <mat-card-subtitle>{{user.prenom}} {{user.nom}}</mat-card-subtitle>
+    <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Date de naissance: {{user.datenaissance}}<br>
+      Filiere: {{user.filiere}}<br>
+      téléphone: {{user.telephone}}<br>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>
