@@ -10,6 +10,7 @@ import {AnneeModule} from './annee/annee.module';
 import {SessionModule} from './session/session.module';
 import {ProjetModule} from './projet/projet.module';
 import {SoutenanceModule} from './soutenance/soutenance.module';
+import { UserModule } from './user/user.module';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ dotenv.config();
     SessionModule,
     ProjetModule,
     SoutenanceModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
