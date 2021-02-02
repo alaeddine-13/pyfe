@@ -1,1 +1,17 @@
-<div>Projet Item Component mawjoud!</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="avatar"></div>
+    <mat-card-title>{{projet.sujet}}</mat-card-title>
+    <mat-card-subtitle>{{projet.statut}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Entreprise: {{projet.entreprise}}<br *ngIf="projet.entreprise">
+      Date: {{projet.date}}<br *ngIf="projet.date">
+      Salle: {{projet.salle}}<br *ngIf="projet.salle">
+      Rapport: {{projet.rapport}}<br *ngIf="projet.rapport">
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>

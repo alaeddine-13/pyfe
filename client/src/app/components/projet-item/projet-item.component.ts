@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BASE_API, PROJET} from '../../globals/vars';
 
 @Component({
@@ -7,6 +7,8 @@ import {BASE_API, PROJET} from '../../globals/vars';
   styleUrls: ['./projet-item.component.css']
 })
 export class ProjetItemComponent implements OnInit {
+
+  @Input() projet:any;
 
   constructor() { }
 
