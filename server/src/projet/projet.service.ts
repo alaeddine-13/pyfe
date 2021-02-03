@@ -28,7 +28,23 @@ export class ProjetService {
     }
 
     async findByUser(id: number) {
-        return await this.projetRepository.find({id});
+        return this.projetRepository
+            .createQueryBuilder('projet')
+            .where("projet.etudiant = :id or projet.encadrant = :id", { id: id })
+            .addSelect('projet.sujet', 'sujet')
+            .addSelect('projet.societe', 'entreprise')
+            .addSelect('projet.statut', 'statut')
+            .addSelect('etudiant.nom', 'nom_etudiant')
+            .addSelect('etudiant.prenom', 'prenom_etudiant')
+            .addSelect('encadrant.nom', 'nom_encadrant')
+            .addSelect('encadrant.prenom', 'prenom_encadrant')
+            .addSelect('soutenance.salle', 'salle')
+            .addSelect('soutenance.date', 'date')
+            .addSelect('soutenance.rapport', 'rapport')
+            .innerJoin('projet.encadrant', 'encadrant')
+            .innerJoin('projet.etudiant', 'etudiant')
+            .innerJoin('projet.soutenance', 'soutenance')
+            .getRawMany();
     }
 
     async update(id: number, updateProjetDto: UpdateProjetDto) {
