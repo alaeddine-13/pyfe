@@ -23,6 +23,11 @@ export class ProjetController {
         return this.projetService.findById(+id);
     }
 
+    @Get('/byUser/:id')
+    findByUser(@Param('id') id: string){
+        return this.projetService.findByUser(+id);
+    }
+
     @Get('formatted/:id')
     findByIdFormatted(@Param('id') id: string) {
         return this.projetService.findByIdFormatted(+id);
