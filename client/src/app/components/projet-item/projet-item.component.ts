@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/services/crud.service';
 import { ProjetModel } from 'src/app/models/projet.model';
+import { UserRoleEnum } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-projet-item',
@@ -14,6 +15,9 @@ export class ProjetItemComponent implements OnInit {
 
   @Input() projet:ProjetModel;
   user : any;
+  etudiantRole: string = UserRoleEnum.ETUDIANT
+  enseignantRole: string = UserRoleEnum.PROFESSEUR
+  adminRole: string = UserRoleEnum.ADMIN
   constructor(
     private authService: AuthService,
     private toastrService: ToastrService,
