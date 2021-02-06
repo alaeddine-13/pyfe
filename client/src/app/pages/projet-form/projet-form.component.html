@@ -6,42 +6,21 @@
       </h2>
 
       <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="nom" placeholder="Nom de l'utilisateur" type="text">
+        <input class="input2" formControlName="sujet" placeholder="Sujet" type="text">
         <span class="focus-input2"></span>
       </div>
 
       <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="prenom" placeholder="Prénom de l'utilisateur" type="text">
+        <input class="input2" formControlName="societe" placeholder="Société" type="text">
         <span class="focus-input2"></span>
       </div>
 
       <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="datenaissance" placeholder="Date de naissance" type="text">
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="telephone" placeholder="Numéro de téléphone" type="text">
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="filiere" placeholder="Filière" type="text">
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="email" placeholder="Email" type="text">
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="projetname" placeholder="Username" type="text">
-        <span class="focus-input2"></span>
-      </div>
-
-      <div class="wrap-input2 validate-input">
-        <input class="input2" formControlName="password" placeholder="Mot de passe" type="password">
+        <label class="form-check-label" for="filiere">Encadrant</label>
+        <select formControlName="encadrant" id="encadrant">
+  name: 'showUser'
+          <option *ngFor="let c of enseignants" [ngValue]="c">{{c|showUser}}</option>
+        </select>
         <span class="focus-input2"></span>
       </div>
 
@@ -49,7 +28,7 @@
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>
           <button [disabled]="projetForm.valid" class="contact2-form-btn">
-            Créer la session
+            Créer le projet
           </button>
         </div>
       </div>

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       (response) => {
         this.toaster.success('Signed in');
         localStorage.setItem('token', response.access_token);
+        localStorage.setItem('user', response.user);
         this.router.navigate(['']);
       },
       (erreur) => {

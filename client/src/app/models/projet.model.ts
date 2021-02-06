@@ -1,6 +1,8 @@
-import {InvalidDataException} from '../globals/exceptions';
-
-
+export enum StatutProjetEnum {
+  VALIDE = 'valide',
+  ENCOURS = 'en cours',
+  ANNULE = 'annule',
+}
 
 export class ProjetModel {
   projet_id: string | null | undefined;

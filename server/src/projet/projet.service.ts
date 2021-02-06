@@ -14,8 +14,10 @@ export class ProjetService {
     }
 
     async create(createProjetDto: CreateProjetDto) {
+        console.log(createProjetDto)
         const annee = this.projetRepository.create(createProjetDto);
-        await this.projetRepository.save(createProjetDto);
+        console.log(annee)
+        await this.projetRepository.save(annee);
         return annee;
     }
 
