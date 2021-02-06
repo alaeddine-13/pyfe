@@ -5,23 +5,23 @@
     <mat-card-subtitle>{{projet.statut}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>
-      Entreprise: {{projet.entreprise}}<br *ngIf="projet.entreprise">
-      Date: {{projet.date}}<br *ngIf="projet.date">
-      Salle: {{projet.salle}}<br *ngIf="projet.salle">
-      Rapport: {{projet.rapport}}<br *ngIf="projet.rapport">
-    </p>
+    <p *ngIf="projet.entreprise"> Entreprise: {{projet.entreprise}} </p>
+    <p *ngIf="projet.date"> Date: {{projet.date}} </p>
+    <p *ngIf="projet.salle"> Salle: {{projet.salle}} </p>
+    <p *ngIf="projet.rapport"> Rapport: {{projet.rapport}} </p>
   </mat-card-content>
   <mat-card-actions>
-    <div *ngIf="!hasSoutenance()">
-      <p>
-        Ce projet n'a pas encore une soutenance programmée
-      </p>
-      <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">Créer une soutenance pour ce projet</button>
+    <div *ngIf="showActions">
+      <div *ngIf="!hasSoutenance()">
+        <p>
+          Ce projet n'a pas encore une soutenance programmée
+        </p>
+        <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">Créer une soutenance pour ce projet</button>
+      </div>
+      <div *ngIf="user.role == adminRole || (user.role == enseignantRole && user.id == projet.projet_encadrantId)">
+        <button type="button" class="btn btn-success" (click)="valider()">Valider</button>
+        <button type="button" class="btn btn-danger" (click)="annuler()">Annuler</button>
+      </div>
     </div>
   </mat-card-actions>
-  <div *ngIf="user.role == adminRole || (user.role == enseignantRole && user.id == projet.projet_encadrantId)">
-    <button type="button" class="btn btn-success" (click)="valider()">Valider</button>
-    <button type="button" class="btn btn-danger" (click)="annuler()">Annuler</button>
-  </div>
 </mat-card>

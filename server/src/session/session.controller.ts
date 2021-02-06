@@ -17,6 +17,11 @@ export class SessionController {
     return this.sessionService.findAll();
   }
 
+  @Get('formatted/')
+  findAllFormatted() {
+      return this.sessionService.findAllFormatted();
+  }
+
   @Get(':id')
   findById(@Param('id') id: string) {
     return this.sessionService.findById(+id);

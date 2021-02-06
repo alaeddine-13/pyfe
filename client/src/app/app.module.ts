@@ -26,8 +26,9 @@ import {ProjetItemComponent} from "./components/projet-item/projet-item.componen
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { UserPipe } from './pipes/user.pipe';
-import { SoutenanceFormComponent } from './pages/soutenance-form/soutenance-form.component';
+import { SoutenanceFormComponent } from './components/soutenance-form/soutenance-form.component';
+import { ShowPipe } from './pipes/show.pipe';
+import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 
 
 @NgModule({
@@ -46,8 +47,9 @@ import { SoutenanceFormComponent } from './pages/soutenance-form/soutenance-form
     ProjetDisplayComponent,
     UserDisplayComponent,
     ProjetItemComponent,
-    UserPipe,
     SoutenanceFormComponent,
+    ShowPipe,
+    CreateSoutenanceForProjetComponent
   ],
   imports: [
     FormsModule,

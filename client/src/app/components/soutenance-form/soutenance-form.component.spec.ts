@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SoutenanceFormComponent } from './soutenance-form.component';
 
-describe('SoutenanceFormComponent', () => {
+describe('CreateSoutenanceComponent', () => {
   let component: SoutenanceFormComponent;
   let fixture: ComponentFixture<SoutenanceFormComponent>;
 

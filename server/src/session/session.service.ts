@@ -36,4 +36,16 @@ export class SessionService {
     await this.sessionRepository.delete({ id });
     return { deleted: true };
   }
+
+  async findAllFormatted(){
+
+    const query = this.sessionRepository
+    .createQueryBuilder('session')
+    .addSelect('session.president', 'president')
+    .addSelect('annee.annee', 'annee')
+    .addSelect('session.nom', 'nom')
+    .innerJoin('session.annee', 'annee')
+    console.log(query.getSql())
+    return await query.getRawMany()
+  }
 }

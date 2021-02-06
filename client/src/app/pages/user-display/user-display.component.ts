@@ -27,7 +27,6 @@ export class UserDisplayComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.user = new UserModel();
     this.getUser();
-    this.projets = {};
     this.getProjetsByID()
   }
 

@@ -14,6 +14,7 @@ import { UserRoleEnum } from 'src/app/models/user.model';
 export class ProjetItemComponent implements OnInit {
 
   @Input() projet:ProjetModel;
+  @Input() showActions: boolean = true;
   user : any;
   etudiantRole: string = UserRoleEnum.ETUDIANT
   enseignantRole: string = UserRoleEnum.PROFESSEUR
