@@ -20,13 +20,14 @@ import {NzSelectModule} from 'ng-zorro-antd/select';
 import {SessionListComponent} from './pages/session-list/session-list.component';
 import {AnneeListComponent} from './pages/annee-list/annee-list.component';
 import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.component';
-import { ProjetDisplayComponent } from './pages/projet-display/projet-display.component';
-import { UserDisplayComponent } from './pages/user-display/user-display.component';
-import {ProjetItemComponent} from "./components/projet-item/projet-item.component";
+import {ProjetDisplayComponent} from './pages/projet-display/projet-display.component';
+import {UserDisplayComponent} from './pages/user-display/user-display.component';
+import {ProjetItemComponent} from './components/projet-item/projet-item.component';
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { UserPipe } from './pipes/user.pipe';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {UserPipe} from './pipes/user.pipe';
+import {AuthGuard} from '../guards/auth.guard';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import { UserPipe } from './pipes/user.pipe';
     FlexLayoutModule,
     MatDatepickerModule
   ],
-  providers: [AuthHttpInterceptor],
+  providers: [AuthHttpInterceptor, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
