@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule, ROUTING} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthHttpInterceptor} from './interceptors/auth.interceptor';
 import {ToastrModule} from 'ngx-toastr';
@@ -24,6 +24,8 @@ import { ProjetDisplayComponent } from './pages/projet-display/projet-display.co
 import { UserDisplayComponent } from './pages/user-display/user-display.component';
 import {ProjetItemComponent} from "./components/projet-item/projet-item.component";
 import {MatCardModule} from '@angular/material/card';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -47,12 +49,15 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    ROUTING,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     NzSelectModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule,
+    MatDatepickerModule
   ],
   providers: [AuthHttpInterceptor],
   bootstrap: [AppComponent]

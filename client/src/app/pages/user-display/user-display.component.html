@@ -15,9 +15,20 @@
   <mat-card-actions>
   </mat-card-actions>
 </mat-card>
-<h2 *ngIf="projets">
+<h2 *ngIf="projets.length">
   Projets:
 </h2>
 <app-projet-item *ngFor="let projet of projets"
   [projet] = "projet">
 </app-projet-item>
+
+<div *ngIf="projets.length==0">
+  <h2>
+    Cet utilisateur n'a pas de projets
+  </h2>
+  <button type="button" class="btn btn-primary" [routerLink]="['/projet-edit']">Créer un projet</button>
+
+
+</div>
+
+
