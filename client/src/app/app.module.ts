@@ -27,6 +27,7 @@ import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserPipe } from './pipes/user.pipe';
+import { SoutenanceFormComponent } from './pages/soutenance-form/soutenance-form.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { UserPipe } from './pipes/user.pipe';
     UserDisplayComponent,
     ProjetItemComponent,
     UserPipe,
+    SoutenanceFormComponent,
   ],
   imports: [
     FormsModule,

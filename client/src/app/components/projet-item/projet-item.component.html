@@ -13,6 +13,12 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
+    <div *ngIf="!hasSoutenance()">
+      <p>
+        Ce projet n'a pas encore une soutenance programmée
+      </p>
+      <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">Créer une soutenance pour ce projet</button>
+    </div>
   </mat-card-actions>
   <div *ngIf="user.role == adminRole || (user.role == enseignantRole && user.id == projet.projet_encadrantId)">
     <button type="button" class="btn btn-success" (click)="valider()">Valider</button>

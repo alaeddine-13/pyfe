@@ -28,6 +28,14 @@ export class ProjetItemComponent implements OnInit {
     this.user = this.authService.getLoggedInUser()
   }
 
+  hasSoutenance(){
+    return this.projet.projet_soutenanceId
+  }
+
+  projetID(){
+    return this.projet.projet_id
+  }
+
   valider(){
     this.crudService.post(BASE_API + PROJET + "/valider/" + `${this.projet.projet_id}`, {}).subscribe(
       (data) => {
