@@ -26,6 +26,7 @@ import {ProjetItemComponent} from "./components/projet-item/projet-item.componen
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { UserPipe } from './pipes/user.pipe';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ProjetDisplayComponent,
     UserDisplayComponent,
     ProjetItemComponent,
+    UserPipe,
   ],
   imports: [
     FormsModule,

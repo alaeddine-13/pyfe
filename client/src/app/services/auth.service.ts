@@ -15,6 +15,10 @@ export class AuthService {
     return this.http.post<any>(`${AUTH_API}/signin`, credentials);
   }
 
+  getLoggedInUser(): any {
+    return localStorage.getItem('user');
+  }
+
   logout() {
     localStorage.removeItem('token');
   }

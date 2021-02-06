@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
-import { UserEntity } from 'src/auth/entities/user.entity';
+import { UserEntity, UserRoleEnum } from 'src/auth/entities/user.entity';
 
 @Injectable()
 export class UserService {
@@ -23,6 +23,11 @@ export class UserService {
 
     async findAll() {
         const users = this.userRepository.find();
+        return (await users).map(this.filterUser)
+    }
+
+    async findAllEnseignants() {
+        const users = this.userRepository.find({role: UserRoleEnum.PROFESSEUR});
         return (await users).map(this.filterUser)
     }
 

@@ -60,6 +60,11 @@ export class AuthService {
           }
           const jwt = this.jwtService.sign(payload);
           return  {
+            "user": {
+              "username": user.username,
+              "email": user.email,
+              "id": user.id,
+            },
             "access_token" : jwt
           }
         } else {

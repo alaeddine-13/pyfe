@@ -11,6 +11,11 @@ export class UserController {
         return this.userService.findAll();
     }
 
+    @Get('enseignants')
+    findAllEnseignants() {
+        return this.userService.findAllEnseignants();
+    }
+
     @Get(':id')
     findById(@Param('id') id: string) {
         return this.userService.findById(+id);

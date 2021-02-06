@@ -1,6 +1,6 @@
 import {UserEntity} from '../../auth/entities/user.entity';
 
-import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
 import {SoutenanceEntity} from '../../soutenance/entities/soutenance.entity';
 
 export enum StatutProjetEnum {
@@ -21,7 +21,7 @@ export class ProjetEntity {
     @JoinColumn()
     etudiant: UserEntity;
 
-    @OneToOne(() => UserEntity)
+    @ManyToOne(() => UserEntity)
     @JoinColumn()
     encadrant: UserEntity;
 
