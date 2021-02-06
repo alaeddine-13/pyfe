@@ -35,7 +35,12 @@ export class UserFormComponent implements OnInit {
 
   onCreateClick() {
     const x = Math.floor(Math.random() * Math.floor(128));
-    this.authService.createUser(this.userForm.value).subscribe(
+    const userData = this.userForm.value
+    if(!('filiere' in userData) || !userData.filiere){
+      userData.filiere = ''
+    }
+    console.log(userData)
+    this.authService.createUser(userData).subscribe(
       (data) => {
         console.log(data);
         this.toastrService.success('User created successfully');

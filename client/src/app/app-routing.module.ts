@@ -9,6 +9,7 @@ import {CreateUsersComponent} from './pages/create-users/create-users.component'
 import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.component';
 import {ProjetDisplayComponent} from './pages/projet-display/projet-display.component';
 import {UserDisplayComponent} from './pages/user-display/user-display.component';
+import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'soutenances', component: SoutenanceListComponent},
   {path: 'projet/:id', component: ProjetDisplayComponent},
   {path: 'user/:id', component: UserDisplayComponent},
+  {path: 'soutenance/new/:id', component: CreateSoutenanceForProjetComponent},
 ];
 /*   { path: '**', component: NF404Component }, */
 @NgModule({

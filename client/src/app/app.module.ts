@@ -25,8 +25,10 @@ import {UserDisplayComponent} from './pages/user-display/user-display.component'
 import {ProjetItemComponent} from './components/projet-item/projet-item.component';
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {UserPipe} from './pipes/user.pipe';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { SoutenanceFormComponent } from './components/soutenance-form/soutenance-form.component';
+import { ShowPipe } from './pipes/show.pipe';
+import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 import {AuthGuard} from '../guards/auth.guard';
 
 
@@ -46,7 +48,9 @@ import {AuthGuard} from '../guards/auth.guard';
     ProjetDisplayComponent,
     UserDisplayComponent,
     ProjetItemComponent,
-    UserPipe,
+    SoutenanceFormComponent,
+    ShowPipe,
+    CreateSoutenanceForProjetComponent
   ],
   imports: [
     FormsModule,

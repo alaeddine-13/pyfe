@@ -16,7 +16,10 @@ export class AuthService {
   }
 
   getLoggedInUser(): any {
-    return localStorage.getItem('user');
+    const user = localStorage.getItem('user')
+    if (!user)
+      return null
+    return JSON.parse(user);
   }
 
   logout() {

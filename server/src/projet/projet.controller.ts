@@ -13,6 +13,16 @@ export class ProjetController {
         return this.projetService.create(createProjetDto);
     }
 
+    @Post('/valider/:id')
+    valider(@Param('id') id: string) {
+        return this.projetService.valider(+id);
+    }
+
+    @Post('/annuler/:id')
+    annuler(@Param('id') id: string) {
+        return this.projetService.annuler(+id);
+    }
+
     @Get()
     findAll() {
         return this.projetService.findAll();

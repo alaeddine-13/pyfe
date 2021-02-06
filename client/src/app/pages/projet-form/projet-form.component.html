@@ -16,10 +16,9 @@
       </div>
 
       <div class="wrap-input2 validate-input">
-        <label class="form-check-label" for="filiere">Encadrant</label>
+        <label class="form-check-label" for="encadrant">Encadrant</label>
         <select formControlName="encadrant" id="encadrant">
-  name: 'showUser'
-          <option *ngFor="let c of enseignants" [ngValue]="c">{{c|showUser}}</option>
+          <option *ngFor="let c of enseignants" [ngValue]="c">{{c|show:'nom,prenom'}}</option>
         </select>
         <span class="focus-input2"></span>
       </div>
