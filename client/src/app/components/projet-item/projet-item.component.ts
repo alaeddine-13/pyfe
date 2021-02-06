@@ -3,7 +3,7 @@ import {BASE_API, PROJET} from '../../globals/vars';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/services/crud.service';
-import { ProjetModel } from 'src/app/models/projet.model';
+import { ProjetModel, StatutProjetEnum } from 'src/app/models/projet.model';
 import { UserRoleEnum } from 'src/app/models/user.model';
 
 @Component({
@@ -19,6 +19,8 @@ export class ProjetItemComponent implements OnInit {
   etudiantRole: string = UserRoleEnum.ETUDIANT
   enseignantRole: string = UserRoleEnum.PROFESSEUR
   adminRole: string = UserRoleEnum.ADMIN
+  valideStatus: string = StatutProjetEnum.VALIDE
+  annuleStatus: string = StatutProjetEnum.ANNULE
   constructor(
     private authService: AuthService,
     private toastrService: ToastrService,
@@ -41,6 +43,7 @@ export class ProjetItemComponent implements OnInit {
     this.crudService.post(BASE_API + PROJET + "/valider/" + `${this.projet.projet_id}`, {}).subscribe(
       (data) => {
         this.toastrService.success("Validé")
+        this.crudService.behaviorSubject.next(true);
       }, (error) => {
         this.toastrService.error("Operation échouée")
         console.log(error);
@@ -53,6 +56,7 @@ export class ProjetItemComponent implements OnInit {
     this.crudService.post(BASE_API + PROJET + "/annuler/" + `${this.projet.projet_id}`, {}).subscribe(
       (data) => {
         this.toastrService.info("Annulé")
+        this.crudService.behaviorSubject.next(true);
       }, (error) => {
         this.toastrService.error("Operation échouée")
         console.log(error);

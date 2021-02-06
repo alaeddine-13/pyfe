@@ -28,6 +28,7 @@ export class UserDisplayComponent implements OnInit {
     this.user = new UserModel();
     this.getUser();
     this.getProjetsByID()
+    this.crudService.behaviorSubject.subscribe(update=>update === true ? this.getProjetsByID() : '');
   }
 
   getUser() {

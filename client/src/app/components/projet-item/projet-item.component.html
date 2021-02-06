@@ -19,8 +19,9 @@
         <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">Créer une soutenance pour ce projet</button>
       </div>
       <div *ngIf="user.role == adminRole || (user.role == enseignantRole && user.id == projet.projet_encadrantId)">
-        <button type="button" class="btn btn-success" (click)="valider()">Valider</button>
-        <button type="button" class="btn btn-danger" (click)="annuler()">Annuler</button>
+        
+        <button type="button" class="btn btn-success" (click)="valider()" *ngIf="projet.statut!=valideStatus">Valider</button>
+        <button type="button" class="btn btn-danger" (click)="annuler()" *ngIf="projet.statut!=annuleStatus">Annuler</button>
       </div>
     </div>
   </mat-card-actions>
