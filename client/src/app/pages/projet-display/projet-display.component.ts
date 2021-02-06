@@ -29,6 +29,7 @@ export class ProjetDisplayComponent implements OnInit {
       // @ts-ignore
       (data: any[]) => {
         this.projet = data;
+        console.log(data)
         console.log(this.projet);
       }, (error) => {
         console.log(error);

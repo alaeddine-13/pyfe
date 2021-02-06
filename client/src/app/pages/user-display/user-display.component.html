@@ -23,11 +23,18 @@
 </app-projet-item>
 
 <div *ngIf="projets.length==0">
-  <h2>
-    Cet utilisateur n'a pas de projets
-  </h2>
-  <button type="button" class="btn btn-primary" [routerLink]="['/projet-edit']">Créer un projet</button>
+  <div *ngIf="user.role==etudiantRole">
+    <h2>
+      Cet étudiant n'a pas de projets
+    </h2>
+    <button type="button" class="btn btn-primary" [routerLink]="['/projet-edit']">Créer un projet</button>
+  </div>
 
+  <div *ngIf="user.role==enseignantRole">
+    <h2>
+      Cet enseignant n'est pas associé à un projet
+    </h2>
+  </div>
 
 </div>
 

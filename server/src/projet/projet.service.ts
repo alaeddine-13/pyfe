@@ -1,4 +1,4 @@
-import {ProjetEntity} from './entities/projet.entity';
+import {ProjetEntity, StatutProjetEnum} from './entities/projet.entity';
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
@@ -45,7 +45,7 @@ export class ProjetService {
             .addSelect('soutenance.rapport', 'rapport')
             .innerJoin('projet.encadrant', 'encadrant')
             .innerJoin('projet.etudiant', 'etudiant')
-            .innerJoin('projet.soutenance', 'soutenance')
+            .leftJoin('projet.soutenance', 'soutenance')
             .getRawMany();
     }
 
@@ -75,7 +75,17 @@ export class ProjetService {
             .addSelect('soutenance.rapport', 'rapport')
             .innerJoin('projet.encadrant', 'encadrant')
             .innerJoin('projet.etudiant', 'etudiant')
-            .innerJoin('projet.soutenance', 'soutenance')
+            .leftJoin('projet.soutenance', 'soutenance')
             .getRawOne();
+    }
+
+    async valider(id: number) {
+        await this.projetRepository.update({id}, {statut: StatutProjetEnum.VALIDE});
+        return {status: "successful"};
+    }
+
+    async annuler(id: number) {
+        await this.projetRepository.update({id}, {statut: StatutProjetEnum.ANNULE});
+        return {status: "successful"};
     }
 }

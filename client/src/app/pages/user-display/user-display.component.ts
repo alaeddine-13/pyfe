@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {BASE_API, USER, PROJET} from "../../globals/vars";
 import {CrudService} from '../../services/crud.service';
-import { UserModel } from 'src/app/models/user.model';
+import { UserModel, UserRoleEnum } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-user-display',
@@ -14,6 +14,9 @@ export class UserDisplayComponent implements OnInit {
   id: number;
   user: UserModel;
   projets: any;
+  etudiantRole: string = UserRoleEnum.ETUDIANT
+  enseignantRole: string = UserRoleEnum.PROFESSEUR
+  adminRole: string = UserRoleEnum.ADMIN
 
   constructor(
     private crudService: CrudService,
@@ -33,7 +36,6 @@ export class UserDisplayComponent implements OnInit {
       // @ts-ignore
       (data: UserModel) => {
         this.user = data;
-        console.log(this.user);
       }, (error) => {
         console.log(error);
       }

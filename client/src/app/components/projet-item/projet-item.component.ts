@@ -1,5 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BASE_API, PROJET} from '../../globals/vars';
+import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { CrudService } from 'src/app/services/crud.service';
+import { ProjetModel } from 'src/app/models/projet.model';
 
 @Component({
   selector: 'app-projet-item',
@@ -8,11 +12,39 @@ import {BASE_API, PROJET} from '../../globals/vars';
 })
 export class ProjetItemComponent implements OnInit {
 
-  @Input() projet:any;
-
-  constructor() { }
+  @Input() projet:ProjetModel;
+  user : any;
+  constructor(
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private crudService: CrudService
+  ) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getLoggedInUser()
+  }
+
+  valider(){
+    this.crudService.post(BASE_API + PROJET + "/valider/" + `${this.projet.projet_id}`, {}).subscribe(
+      (data) => {
+        this.toastrService.success("Validé")
+      }, (error) => {
+        this.toastrService.error("Operation échouée")
+        console.log(error);
+      }
+    );
+    
+  }
+
+  annuler(){
+    this.crudService.post(BASE_API + PROJET + "/annuler/" + `${this.projet.projet_id}`, {}).subscribe(
+      (data) => {
+        this.toastrService.info("Annulé")
+      }, (error) => {
+        this.toastrService.error("Operation échouée")
+        console.log(error);
+      }
+    );
   }
 
 }

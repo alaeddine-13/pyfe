@@ -1,5 +1,11 @@
 import {InvalidDataException} from '../globals/exceptions';
 
+export enum UserRoleEnum {
+  ADMIN = 'admin',
+  ETUDIANT = 'etudiant',
+  PROFESSEUR = 'professeur',
+}
+
 export class UserModel {
   email: string | null | undefined;
   username: string | null | undefined;

@@ -63,6 +63,7 @@ export class AuthService {
             "user": {
               "username": user.username,
               "email": user.email,
+              "role": user.role,
               "id": user.id,
             },
             "access_token" : jwt
