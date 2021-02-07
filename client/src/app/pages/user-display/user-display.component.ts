@@ -28,13 +28,13 @@ export class UserDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedInUser = this.authService.getLoggedInUser()
-    this.route.paramMap.subscribe((params : ParamMap)=> {  
+    this.route.paramMap.subscribe((params : ParamMap)=> {
       const id = params.get('id')
       if(id)
         this.id = +id;
       this.load()
-    }); 
-    
+    });
+
     this.crudService.behaviorSubject.subscribe(update=>update === true ? this.load() : '');
   }
   load(){
@@ -52,6 +52,7 @@ export class UserDisplayComponent implements OnInit {
   }
 
   async getProjetsByID() {
+    this.projets = [];
     this.projets = await this.crudService.getAll(BASE_API + PROJET + '/byUser/' + this.id).toPromise()
       .catch(error =>{
         console.log(error);
