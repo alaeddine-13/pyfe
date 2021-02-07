@@ -7,18 +7,28 @@
   <mat-card-content>
     <div class="container">
       <div class="row">
-        <div class="col-md-auto">  
+        <div class="col-md-auto">
           <p *ngIf="projet.entreprise"> Entreprise: {{projet.entreprise}} </p>
           <p *ngIf="projet.date"> Date: {{projet.date|date: 'short'}} </p>
           <p *ngIf="projet.salle"> Salle: {{projet.salle}} </p>
-          <p *ngIf="projet.rapport"> Rapport: {{projet.rapport}} </p>
+          <p *ngIf="projet.rapport"class="wrapper"> Rapport:
+            <a href="{{projet.rapport}}">
+              <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
+            </a>
+          </p>
         </div>
         <div class="col col-lg-2">
           <div *ngIf="projet.projet_encadrantId">
-            Encadrant <fa-icon [icon]="faExternalLinkAlt" [routerLink]="['/user', projet.projet_encadrantId]"></fa-icon>
+            Encadrant:
+              <a href="/user/{{projet.projet_encadrantId}}">
+                {{projet.prenom_encadrant}}&nbsp;{{projet.nom_encadrant}}
+              </a>
           </div>
           <div *ngIf="projet.projet_etudiantId">
-            Etudiant <fa-icon [icon]="faExternalLinkAlt" [routerLink]="['/user', projet.projet_etudiantId]"></fa-icon>
+            Etudiant:
+            <a href="/user/{{projet.projet_etudiantId}}">
+              {{projet.prenom_etudiant}}&nbsp;{{projet.nom_etudiant}}
+            </a>
           </div>
         </div>
       </div>
@@ -33,7 +43,7 @@
         <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">Créer une soutenance pour ce projet</button>
       </div>
       <div *ngIf="user.role == adminRole || (user.role == enseignantRole && user.id == projet.projet_encadrantId)">
-        
+
         <button type="button" class="btn btn-success" (click)="valider()" *ngIf="projet.statut!=valideStatus">Valider</button>
         <button type="button" class="btn btn-danger" (click)="annuler()" *ngIf="projet.statut!=annuleStatus">Annuler</button>
       </div>
