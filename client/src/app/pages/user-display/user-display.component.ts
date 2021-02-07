@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import {BASE_API, USER, PROJET} from "../../globals/vars";
 import {CrudService} from '../../services/crud.service';
 import { UserModel, UserRoleEnum } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-display',
@@ -17,13 +18,16 @@ export class UserDisplayComponent implements OnInit {
   etudiantRole: string = UserRoleEnum.ETUDIANT
   enseignantRole: string = UserRoleEnum.PROFESSEUR
   adminRole: string = UserRoleEnum.ADMIN
+  loggedInUser: any
 
   constructor(
     private crudService: CrudService,
+    private authService: AuthService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.loggedInUser = this.authService.getLoggedInUser()
     this.route.paramMap.subscribe((params : ParamMap)=> {  
       const id = params.get('id')
       if(id)

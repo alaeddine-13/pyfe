@@ -14,6 +14,7 @@ import { BASE_API, SOUTENANCE, SESSION } from 'src/app/globals/vars';
 export class SoutenanceFormComponent implements OnInit {
   @Input() projet:ProjetModel;
   sessions: any;
+  rapport: string;
 
     // @ts-ignore
     soutenanceForm: FormGroup;
@@ -37,10 +38,15 @@ export class SoutenanceFormComponent implements OnInit {
         }
       )
     }
+
+    setRapportUrl(value: any){
+      this.rapport = value
+    }
   
     onCreateClick() {
       const soutenance = {
         ...this.soutenanceForm.value,
+        rapport: this.rapport,
         projet: this.projet.projet_id
       }
       console.log(soutenance)
