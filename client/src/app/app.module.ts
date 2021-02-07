@@ -25,23 +25,24 @@ import {UserDisplayComponent} from './pages/user-display/user-display.component'
 import {ProjetItemComponent} from './components/projet-item/projet-item.component';
 import {MatCardModule} from '@angular/material/card';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { SoutenanceFormComponent } from './components/soutenance-form/soutenance-form.component';
-import { ShowPipe } from './pipes/show.pipe';
-import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
-import {AuthGuard} from '../guards/auth.guard';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FileUploadComponent } from './components/file-upload/file-upload.component';
-import { DatatableComponent } from './components/datatable/datatable.component';
-import { DataTablesModule } from "angular-datatables";
-import { ProjetListComponent } from './pages/projet-list/projet-list.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {SoutenanceFormComponent} from './components/soutenance-form/soutenance-form.component';
+import {ShowPipe} from './pipes/show.pipe';
+import {CreateSoutenanceForProjetComponent} from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
+import {AuthGuard} from './guards/auth.guard';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {FileUploadComponent} from './components/file-upload/file-upload.component';
+import {DatatableComponent} from './components/datatable/datatable.component';
+import {DataTablesModule} from 'angular-datatables';
+import {ProjetListComponent} from './pages/projet-list/projet-list.component';
 
-import { GestionSessionsComponent } from './pages/gestion-sessions/gestion-sessions.component';
-import { GestionAnneesComponent } from './pages/gestion-annees/gestion-annees.component';
-import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
-import { SessionDatatableComponent } from './components/session-datatable/session-datatable.component';
-import { AnneeDatatableComponent } from './components/annee-datatable/annee-datatable.component';
-import { UserDatatableComponent } from './components/user-datatable/user-datatable.component';
+import {GestionSessionsComponent} from './pages/gestion-sessions/gestion-sessions.component';
+import {GestionAnneesComponent} from './pages/gestion-annees/gestion-annees.component';
+import {GestionUtilisateursComponent} from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
+import {SessionDatatableComponent} from './components/session-datatable/session-datatable.component';
+import {AnneeDatatableComponent} from './components/annee-datatable/annee-datatable.component';
+import {UserDatatableComponent} from './components/user-datatable/user-datatable.component';
+import {PermissionGuard} from './guards/permission.guard';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,7 @@ import { UserDatatableComponent } from './components/user-datatable/user-datatab
     FontAwesomeModule,
     DataTablesModule
   ],
-  providers: [AuthHttpInterceptor, AuthGuard],
+  providers: [AuthHttpInterceptor, AuthGuard, PermissionGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
