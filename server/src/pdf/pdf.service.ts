@@ -24,14 +24,14 @@ export class PdfService {
             orientation: "portrait"
         }
         
-        const filename = `/tmp/report_${Date.now()}.pdf`
-
+        const filename = `report_${Date.now()}.pdf`
+        const dir = '/tmp'
 
         const createResult = pdf.create(html, options);
         const pdfToFile = Promise.promisify(createResult.__proto__.toFile, { context: createResult });
-        await pdfToFile(filename)
+        await pdfToFile(`${dir}/${filename}`)
 
-        const buffer = fs.readFileSync(filename)
+        const buffer = fs.readFileSync(`${dir}/${filename}`)
         return {originalname: filename, buffer}
 
     }
