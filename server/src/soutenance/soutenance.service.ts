@@ -26,11 +26,22 @@ export class SoutenanceService {
     }
 
     async findAll() {
-        return this.soutenanceRepository.find();
+        const query = this.soutenanceRepository
+            .createQueryBuilder('soutenance')
+            .addSelect('projet.id', 'projetId')
+            .leftJoin('projet', 'projet', 'projet.soutenanceId = soutenance.id');
+        console.log(query.getSql());
+        return query.getRawMany();
     }
 
     async findById(id: number) {
-        return await this.soutenanceRepository.findOne({id});
+        const query = this.soutenanceRepository
+            .createQueryBuilder('soutenance')
+            .where('soutenance.id = :id', {id : id})
+            .addSelect('projet.id', 'projetId')
+            .leftJoin('projet', 'projet', 'projet.soutenanceId = soutenance.id');
+        console.log(query.getSql());
+        return query.getRawOne();
     }
 
     async update(id: number, updateSoutenanceDto: UpdateSoutenanceDto) {
