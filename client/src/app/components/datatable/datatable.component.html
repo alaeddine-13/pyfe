@@ -1,0 +1,20 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns">{{column[1]}}</th>
+        <th *ngFor="let linkColumn of linkColumns">{{linkColumn[1]}}</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let element of elements">
+            <td *ngFor="let column of columns">
+                {{element[column[0]]}}
+            </td>
+            <td *ngFor="let linkColumn of linkColumns">
+                <a href="{{linkColumn[2](element[linkColumn[0]])}}" target="_blank" style="align-content: center;">
+                    <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+  </table>

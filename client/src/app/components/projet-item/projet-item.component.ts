@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/services/crud.service';
 import { ProjetModel, StatutProjetEnum } from 'src/app/models/projet.model';
 import { UserRoleEnum } from 'src/app/models/user.model';
-import { faCoffee, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-projet-item',

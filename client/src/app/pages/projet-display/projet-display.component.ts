@@ -10,7 +10,7 @@ import {CrudService} from '../../services/crud.service';
 })
 export class ProjetDisplayComponent implements OnInit {
 
-  id:number;
+  id:string;
   projet:any;
 
   constructor(
@@ -25,7 +25,7 @@ export class ProjetDisplayComponent implements OnInit {
   }
 
   getProjet() {
-    this.crudService.getAll(BASE_API + PROJET + '/formatted/' + this.id).subscribe(
+    this.crudService.getOne(BASE_API + PROJET + "/formatted", this.id).subscribe(
       // @ts-ignore
       (data: any[]) => {
         this.projet = data;
