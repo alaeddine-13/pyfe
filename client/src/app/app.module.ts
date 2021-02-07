@@ -39,6 +39,9 @@ import { ProjetListComponent } from './pages/projet-list/projet-list.component';
 import { GestionSessionsComponent } from './pages/gestion-sessions/gestion-sessions.component';
 import { GestionAnneesComponent } from './pages/gestion-annees/gestion-annees.component';
 import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
+import { SessionDatatableComponent } from './components/session-datatable/session-datatable.component';
+import { AnneeDatatableComponent } from './components/annee-datatable/annee-datatable.component';
+import { UserDatatableComponent } from './components/user-datatable/user-datatable.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gesti
     GestionSessionsComponent,
     GestionAnneesComponent,
     GestionUtilisateursComponent,
+    SessionDatatableComponent,
+    AnneeDatatableComponent,
+    UserDatatableComponent,
   ],
   imports: [
     FormsModule,
