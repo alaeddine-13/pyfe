@@ -32,6 +32,9 @@ import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-fo
 import {AuthGuard} from '../guards/auth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { GestionSessionsComponent } from './pages/gestion-sessions/gestion-sessions.component';
+import { GestionAnneesComponent } from './pages/gestion-annees/gestion-annees.component';
+import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     ShowPipe,
     CreateSoutenanceForProjetComponent,
     FileUploadComponent,
+    GestionSessionsComponent,
+    GestionAnneesComponent,
+    GestionUtilisateursComponent,
   ],
   imports: [
     FormsModule,
