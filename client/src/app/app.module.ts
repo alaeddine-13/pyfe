@@ -31,6 +31,7 @@ import { ShowPipe } from './pipes/show.pipe';
 import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 import {AuthGuard} from '../guards/auth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SoutenanceFormComponent,
     ShowPipe,
     CreateSoutenanceForProjetComponent,
+    FileUploadComponent,
   ],
   imports: [
     FormsModule,
