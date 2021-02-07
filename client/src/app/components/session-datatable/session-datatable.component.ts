@@ -13,7 +13,8 @@ export class SessionDatatableComponent implements OnInit {
   sessions: SessionModel[] = []
   columns: [string, string][] = [['nom', 'Session'], ['debut', 'Debut'], ['fin', 'Fin'], ['president', 'President']]
   linkColumns: [string, string, (id: any) => string][] = [
-    ['id', 'Modifier', (id)=>`/session/${id}`]
+    ['id', 'Modifier', (id)=>`/session/${id}`],
+    ['id', 'Generer Rapport', (id)=>`/session/rapport/${id}`],
   ]
 
   constructor(

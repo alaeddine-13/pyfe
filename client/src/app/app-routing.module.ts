@@ -15,6 +15,7 @@ import {GestionSessionsComponent} from './pages/gestion-sessions/gestion-session
 import {GestionAnneesComponent} from './pages/gestion-annees/gestion-annees.component';
 import {GestionUtilisateursComponent} from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
 import {PermissionGuard} from './guards/permission.guard';
+import { GenerateRapportComponent } from './pages/generate-rapport/generate-rapport.component';
 
 const routes: Routes = [
   {path: '', component: ProjetListComponent},
@@ -38,7 +39,7 @@ const routes: Routes = [
   {path: 'gestion-sessions', component: GestionSessionsComponent},
   {path: 'gestion-annees', component: GestionAnneesComponent},
   {path: 'gestion-utilisateurs', component: GestionUtilisateursComponent},
-
+  {path: 'session/rapport/:id', component: GenerateRapportComponent},
 ];
 
 /*   { path: '**', component: NF404Component }, */

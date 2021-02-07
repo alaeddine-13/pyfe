@@ -43,6 +43,7 @@ import {SessionDatatableComponent} from './components/session-datatable/session-
 import {AnneeDatatableComponent} from './components/annee-datatable/annee-datatable.component';
 import {UserDatatableComponent} from './components/user-datatable/user-datatable.component';
 import {PermissionGuard} from './guards/permission.guard';
+import { GenerateRapportComponent } from './pages/generate-rapport/generate-rapport.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import {PermissionGuard} from './guards/permission.guard';
     SessionDatatableComponent,
     AnneeDatatableComponent,
     UserDatatableComponent,
+    GenerateRapportComponent,
   ],
   imports: [
     FormsModule,
