@@ -1,8 +1,9 @@
 export class SoutenanceModel {
-  id: number;
-  rapport: any;
-  salle: string;
-  date: string;
-  sessionId: number;
+  soutenance_id: number;
+  soutenance_rapport: any;
+  soutenance_salle: string;
+  soutenance_date: string;
+  soutenance_sessionId: number;
+  soutenance_projetId: number;
   projetId: number;
 }

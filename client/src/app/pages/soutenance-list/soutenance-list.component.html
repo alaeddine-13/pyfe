@@ -17,11 +17,11 @@
       <tbody>
       <tr *ngFor="let soutenance of soutenances">
 
-        <td>{{ soutenance.salle}}</td>
-        <td>{{ soutenance.date }}</td>
-        <td>{{ soutenance.sessionId }}</td>
+        <td>{{ soutenance.soutenance_salle}}</td>
+        <td>{{ soutenance.soutenance_date }}</td>
+        <td>{{ soutenance.soutenance_sessionId }}</td>
         <td>{{ soutenance.projetId}}</td>
-        <td>{{ soutenance.rapport }}</td>
+        <td><a href="{{ soutenance.soutenance_rapport }}">{{ soutenance.soutenance_rapport }}</a></td>
 
       </tr>
       </tbody>
