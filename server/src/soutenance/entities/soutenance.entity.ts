@@ -24,6 +24,4 @@ export class SoutenanceEntity {
     @JoinColumn()
     projet: ProjetEntity;
 
-    @Column()
-    sessionId: number;
 }
