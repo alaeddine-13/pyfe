@@ -14,43 +14,6 @@
                        fxLayout="row" fxLayoutAlign="center center">
       </app-projet-item>
 
-<<<<<<< HEAD
-        <app-file-upload (fileUrlEmitter)="setRapportUrl($event)"></app-file-upload>
-  
-        <div class="wrap-input2 validate-input">
-          <input class="input2" formControlName="salle" placeholder="Salle" type="text">
-          <span class="focus-input2"></span>
-        </div>
-  
-        <div class="wrap-input2 validate-input">
-          <label class="form-check-label" for="session">Session</label>
-          <select formControlName="session" id="session">
-            <option *ngFor="let c of sessions" [ngValue]="c.session_id">{{c|show: 'nom,annee'}}</option>
-          </select>
-          <span class="focus-input2"></span>
-        </div>
-        <div class="wrap-input2 validate-input">
-          <input class="input2" formControlName="date" placeholder="Date" type="text">
-          <!--
-            <mat-form-field appearance="fill">
-              <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="datenaissance">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          -->
-          <span class="focus-input2"></span>
-        </div>
-  
-        <div class="container-contact2-form-btn">
-          <div class="wrap-contact2-form-btn">
-            <div class="contact2-form-bgbtn"></div>
-            <!-- TODO: restore this [disabled]="soutenanceForm.valid"-->
-            <button class="contact2-form-btn">
-              Créer la soutenance
-            </button>
-          </div>
-=======
       <app-file-upload (fileUrlEmitter)="setRapportUrl($event)"></app-file-upload>
 
       <div class="wrap-input2 validate-input">
@@ -61,7 +24,7 @@
       <div class="wrap-input2 validate-input">
         <label class="form-check-label" for="session">Session</label>
         <select formControlName="session" id="session">
-          <option *ngFor="let c of sessions" [ngValue]="c.id">{{c|show: 'nom,annee'}}</option>
+          <option *ngFor="let c of sessions" [ngValue]="c.session_id">{{c|show: 'nom,annee'}}</option>
         </select>
         <span class="focus-input2"></span>
       </div>
@@ -85,7 +48,6 @@
           <button class="contact2-form-btn">
             Submit
           </button>
->>>>>>> f2671366b74c86cc056e7ba9ab0ccb3747c5618e
         </div>
       </div>
     </form>

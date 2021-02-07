@@ -83,23 +83,6 @@ export class SoutenanceFormComponent implements OnInit {
           }
         );
     }
-<<<<<<< HEAD
-  
-    initSoutenanceForm() {
-      this.soutenanceForm = this.fb.group({
-        salle: [null, Validators.compose([
-          Validators.required
-        ])],
-        date: [null, Validators.compose([
-          Validators.required
-        ])],
-        session: [null, Validators.compose([
-          Validators.required
-        ])],
-      });
-    }
-=======
->>>>>>> f2671366b74c86cc056e7ba9ab0ccb3747c5618e
   }
 
   initSoutenanceForm() {
