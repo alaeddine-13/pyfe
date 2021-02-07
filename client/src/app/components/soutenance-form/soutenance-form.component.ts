@@ -63,7 +63,7 @@ export class SoutenanceFormComponent implements OnInit {
       projet: this.projet.projet_id
     };
     console.log(SOUTENANCE, soutenance);
-    if (this.projet.projet_soutenanceId) {
+    if (!this.projet.projet_soutenanceId) {
       this.crudService.post(BASE_API + SOUTENANCE, soutenance
       ).subscribe(
         (data) => {
