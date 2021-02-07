@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CrudService} from '../../services/crud.service';
 import {ANNEE, BASE_API, SESSION} from '../../globals/vars';
 import {AnneeModel} from '../../models/annee.model';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-session-form',
@@ -16,7 +18,9 @@ export class SessionFormComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastrService: ToastrService,
+    private router: Router
   ) {
 
   }
@@ -40,10 +44,15 @@ export class SessionFormComponent implements OnInit {
   }
 
   onCreateClick() {
-    this.crudService.post(BASE_API + SESSION, this.sessionForm).subscribe(
+    console.log(this.sessionForm.value)
+    this.crudService.post(BASE_API + SESSION, this.sessionForm.value).subscribe(
       (data) => {
         console.log(data);
+        this.toastrService.success("Session créee")
+        this.router.navigate([''])
+
       }, (error) => {
+        this.toastrService.error("Création de la session échouée, veuillez valider les données")
         console.log(error);
       }
     );
