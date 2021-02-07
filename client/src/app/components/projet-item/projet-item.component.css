@@ -6,3 +6,9 @@
   background-image: url('./../../../assets/avatar.jpg');
   background-size: cover;
 }
+
+.wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
