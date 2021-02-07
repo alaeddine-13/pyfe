@@ -12,6 +12,9 @@ import {UserDisplayComponent} from './pages/user-display/user-display.component'
 import {CreateSoutenanceForProjetComponent} from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
 import { ProjetListComponent } from './pages/projet-list/projet-list.component';
+import {GestionSessionsComponent} from "./pages/gestion-sessions/gestion-sessions.component";
+import {GestionAnneesComponent} from "./pages/gestion-annees/gestion-annees.component";
+import {GestionUtilisateursComponent} from "./pages/gestion-utilisateurs/gestion-utilisateurs.component";
 
 const routes: Routes = [
   {path: '', component: ProjetListComponent},
@@ -28,6 +31,9 @@ const routes: Routes = [
   {path: 'projet/:id', component: ProjetDisplayComponent},
   {path: 'user/:id', component: UserDisplayComponent},
   {path: 'soutenance/new/:id', component: CreateSoutenanceForProjetComponent},
+  {path: 'gestion-sessions', component: GestionSessionsComponent},
+  {path: 'gestion-annees', component: GestionAnneesComponent},
+  {path: 'gestion-utilisateurs', component: GestionUtilisateursComponent},
 
 ];
 /*   { path: '**', component: NF404Component }, */

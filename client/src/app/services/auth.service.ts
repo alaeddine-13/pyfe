@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   getLoggedInUser(): any {
-    const user = localStorage.getItem('user')
+    const user = localStorage.getItem('user') //username email role id
     if (!user)
       return null
     return JSON.parse(user);
@@ -28,6 +28,11 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
+  }
+
+  isAdmin(): boolean {
+    const user = this.getLoggedInUser();
+    return user.role == 'admin';
   }
 
   createUsers(users: UserModel[]): Observable<any> {

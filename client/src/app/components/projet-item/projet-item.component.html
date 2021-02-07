@@ -11,8 +11,8 @@
           <p *ngIf="projet.entreprise"> Entreprise: {{projet.entreprise}} </p>
           <p *ngIf="projet.date"> Date: {{projet.date|date: 'short'}} </p>
           <p *ngIf="projet.salle"> Salle: {{projet.salle}} </p>
-          <p *ngIf="projet.rapport"class="wrapper"> Rapport:
-            <a href="{{projet.rapport}}">{{projet.rapport}}
+          <p *ngIf="projet.rapport" class="wrapper"> Rapport:
+            <a href="{{projet.rapport}}">
               <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
             </a>
           </p>
@@ -40,7 +40,9 @@
         <p>
           Ce projet n'a pas encore une soutenance programmée
         </p>
-        <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">Créer une soutenance pour ce projet</button>
+        <button type="button" class="btn btn-info" [routerLink]="['/soutenance', 'new', projetID()]">
+          Créer une soutenance pour ce projet
+        </button>
       </div>
       <div *ngIf="user.role == adminRole || (user.role == enseignantRole && user.id == projet.projet_encadrantId)">
 
