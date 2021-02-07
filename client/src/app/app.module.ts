@@ -32,6 +32,10 @@ import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-fo
 import {AuthGuard} from '../guards/auth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { DatatableComponent } from './components/datatable/datatable.component';
+import { DataTablesModule } from "angular-datatables";
+import { ProjetListComponent } from './pages/projet-list/projet-list.component';
+
 import { GestionSessionsComponent } from './pages/gestion-sessions/gestion-sessions.component';
 import { GestionAnneesComponent } from './pages/gestion-annees/gestion-annees.component';
 import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
@@ -56,6 +60,8 @@ import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gesti
     ShowPipe,
     CreateSoutenanceForProjetComponent,
     FileUploadComponent,
+    DatatableComponent,
+    ProjetListComponent,
     GestionSessionsComponent,
     GestionAnneesComponent,
     GestionUtilisateursComponent,
@@ -73,7 +79,8 @@ import { GestionUtilisateursComponent } from './pages/gestion-utilisateurs/gesti
     MatCardModule,
     FlexLayoutModule,
     MatDatepickerModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DataTablesModule
   ],
   providers: [AuthHttpInterceptor, AuthGuard],
   bootstrap: [AppComponent]
