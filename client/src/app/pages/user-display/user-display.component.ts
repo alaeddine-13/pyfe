@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import {BASE_API, USER, PROJET} from "../../globals/vars";
 import {CrudService} from '../../services/crud.service';
 import { UserModel, UserRoleEnum } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-display',
@@ -17,50 +18,44 @@ export class UserDisplayComponent implements OnInit {
   etudiantRole: string = UserRoleEnum.ETUDIANT
   enseignantRole: string = UserRoleEnum.PROFESSEUR
   adminRole: string = UserRoleEnum.ADMIN
+  loggedInUser: any
 
   constructor(
     private crudService: CrudService,
+    private authService: AuthService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params.id;
+    this.loggedInUser = this.authService.getLoggedInUser()
+    this.route.paramMap.subscribe((params : ParamMap)=> {  
+      const id = params.get('id')
+      if(id)
+        this.id = +id;
+      this.load()
+    }); 
+    
+    this.crudService.behaviorSubject.subscribe(update=>update === true ? this.load() : '');
+  }
+  load(){
     this.user = new UserModel();
     this.getUser();
     this.getProjetsByID()
   }
 
-  getUser() {
-    this.crudService.getAll(BASE_API + USER + '/' + this.id).subscribe(
-      // @ts-ignore
-      (data: UserModel) => {
-        this.user = data;
-      }, (error) => {
+  async getUser() {
+    this.user = <UserModel> await this.crudService.getAll(BASE_API + USER + '/' + this.id).toPromise().catch(
+      error => {
         console.log(error);
       }
-    );
+    )
   }
 
-  getProjetsByID() {
-    this.crudService.getAll(BASE_API + PROJET + '/byUser/' + this.id).subscribe(
-      // @ts-ignore
-      (data: ProjetModel[]) => {
-        this.projets = data;
-        console.log(this.projets);
-      }, (error: any) => {
+  async getProjetsByID() {
+    this.projets = await this.crudService.getAll(BASE_API + PROJET + '/byUser/' + this.id).toPromise()
+      .catch(error =>{
         console.log(error);
-      }
-    );
-    // TODO: get projet from backend end-point /projet/byUser/id
-    /*this.crudService.getAll(BASE_API + PROJET + '/byUser/' + this.id).subscribe(
-      // @ts-ignore
-      (data: UserModel) => {
-        this.projets = data;
-        console.log(this.projets);
-      }, (error) => {
-        console.log(error);
-      }
-    );*/
+      })
   }
 
 }

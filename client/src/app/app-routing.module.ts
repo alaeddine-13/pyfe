@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'projet/:id', component: ProjetDisplayComponent},
   {path: 'user/:id', component: UserDisplayComponent},
   {path: 'soutenance/new/:id', component: CreateSoutenanceForProjetComponent},
+  
 ];
 /*   { path: '**', component: NF404Component }, */
 @NgModule({

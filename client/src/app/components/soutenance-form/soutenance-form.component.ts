@@ -14,6 +14,7 @@ import { BASE_API, SOUTENANCE, SESSION } from 'src/app/globals/vars';
 export class SoutenanceFormComponent implements OnInit {
   @Input() projet:ProjetModel;
   sessions: any;
+  rapport: string;
 
     // @ts-ignore
     soutenanceForm: FormGroup;
@@ -37,13 +38,20 @@ export class SoutenanceFormComponent implements OnInit {
         }
       )
     }
+
+    setRapportUrl(value: any){
+      console.log("upload result", value)
+      this.rapport = value
+    }
   
     onCreateClick() {
+      console.log("submitting soutenance form")
       const soutenance = {
         ...this.soutenanceForm.value,
+        rapport: this.rapport,
         projet: this.projet.projet_id
       }
-      console.log(soutenance)
+      console.log(SOUTENANCE, soutenance)
       this.crudService.post(BASE_API + SOUTENANCE, soutenance
         ).subscribe(
         (data) => {

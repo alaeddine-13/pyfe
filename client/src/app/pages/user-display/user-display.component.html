@@ -7,7 +7,7 @@
   </mat-card-header>
   <mat-card-content>
     <p>
-      Date de naissance: {{user.datenaissance}}<br>
+      Date de naissance: {{user.datenaissance| date:"longDate"}}<br>
       Filiere: {{user.filiere}}<br>
       téléphone: {{user.telephone}}<br>
     </p>
@@ -27,7 +27,7 @@
     <h2>
       Cet étudiant n'a pas de projets
     </h2>
-    <button type="button" class="btn btn-primary" [routerLink]="['/projet-edit']">Créer un projet</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['/projet-edit']" *ngIf="user.username==loggedInUser.username">Créer un projet</button>
   </div>
 
   <div *ngIf="user.role==enseignantRole">

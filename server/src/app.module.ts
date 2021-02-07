@@ -11,8 +11,11 @@ import {SessionModule} from './session/session.module';
 import {ProjetModule} from './projet/projet.module';
 import {SoutenanceModule} from './soutenance/soutenance.module';
 import { UserModule } from './user/user.module';
+import { FileUploadModule } from './file-upload/file-upload.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 dotenv.config();
+
 
 @Module({
   imports: [
@@ -34,6 +37,8 @@ dotenv.config();
     ProjetModule,
     SoutenanceModule,
     UserModule,
+    FileUploadModule,
+    MulterModule
   ],
   controllers: [AppController],
   providers: [AppService],
