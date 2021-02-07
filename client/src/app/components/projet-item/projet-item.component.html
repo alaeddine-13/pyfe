@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-auto">  
           <p *ngIf="projet.entreprise"> Entreprise: {{projet.entreprise}} </p>
-          <p *ngIf="projet.date"> Date: {{projet.date}} </p>
+          <p *ngIf="projet.date"> Date: {{projet.date|date: 'short'}} </p>
           <p *ngIf="projet.salle"> Salle: {{projet.salle}} </p>
           <p *ngIf="projet.rapport"> Rapport: {{projet.rapport}} </p>
         </div>
