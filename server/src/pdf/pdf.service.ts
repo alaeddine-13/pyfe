@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {render} from 'ejs';
 import * as fs from 'fs';
 import * as pdf from 'html-pdf';
-import * as Promise from 'bluebird'
+import * as Promise from 'bluebird';
 
 @Injectable()
 export class PdfService {
