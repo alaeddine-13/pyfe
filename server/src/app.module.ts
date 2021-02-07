@@ -14,6 +14,7 @@ import { UserModule } from './user/user.module';
 import { PdfService } from './pdf/pdf.service';
 import { FileUploadModule } from './file-upload/file-upload.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { PdfModule } from './pdf/pdf.module';
 
 dotenv.config();
 
@@ -39,7 +40,8 @@ dotenv.config();
     SoutenanceModule,
     UserModule,
     FileUploadModule,
-    MulterModule
+    MulterModule,
+    PdfModule
   ],
   controllers: [AppController],
   providers: [AppService, PdfService],

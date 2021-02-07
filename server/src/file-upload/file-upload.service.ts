@@ -9,7 +9,7 @@ export class FileUploadService {
           Key: file.originalname,
           Body: file.buffer,
           ACL: 'public-read'
-      }).promise();
+        }).promise();
         return uploadResult.Location
     }
 }
