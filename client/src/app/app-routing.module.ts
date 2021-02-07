@@ -11,8 +11,8 @@ import {ProjetDisplayComponent} from './pages/projet-display/projet-display.comp
 import {UserDisplayComponent} from './pages/user-display/user-display.component';
 import {CreateSoutenanceForProjetComponent} from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 import {ProjetListComponent} from './pages/projet-list/projet-list.component';
-import {GestionSessionsComponent} from './pages/gestion-sessions/gestion-sessions.component';
-import {GestionAnneesComponent} from './pages/gestion-annees/gestion-annees.component';
+import {GestionSessionsComponent} from "./pages/gestion-sessions/gestion-sessions.component";
+import {GestionAnneesComponent} from "./pages/gestion-annees/gestion-annees.component";
 import {GestionUtilisateursComponent} from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
 import {PermissionGuard} from './guards/permission.guard';
 import { GenerateRapportComponent } from './pages/generate-rapport/generate-rapport.component';
@@ -22,23 +22,71 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {
     path: 'annee', component: AnneeFormComponent, canActivate: [PermissionGuard], data: {
-      role: 'etudiant'
+      role: 'admin'
     }
   },
-  {path: 'annee/:id', component: AnneeFormComponent},
-  {path: 'session', component: SessionFormComponent},
-  {path: 'session/:id', component: SessionFormComponent},
-  {path: 'user-edit', component: UserFormComponent},
-  {path: 'projet-edit', component: ProjetFormComponent},
-  {path: 'projet-edit/:id', component: ProjetFormComponent},
-  {path: 'create-users', component: CreateUsersComponent},
+  {
+    path: 'annee/:id', component: AnneeFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'session', component: SessionFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'session/:id', component: SessionFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'user-edit', component: UserFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'projet-edit', component: ProjetFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'projet-edit/:id', component: ProjetFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'create-users', component: CreateUsersComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'projet/:id', component: ProjetDisplayComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'soutenance/new/:id', component: CreateSoutenanceForProjetComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'gestion-sessions', component: GestionSessionsComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'gestion-annees', component: GestionAnneesComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
+  {
+    path: 'gestion-utilisateurs', component: GestionUtilisateursComponent, canActivate: [PermissionGuard], data: {
+      role: 'admin'
+    }
+  },
   {path: 'soutenances', component: SoutenanceListComponent},
-  {path: 'projet/:id', component: ProjetDisplayComponent},
   {path: 'user/:id', component: UserDisplayComponent},
-  {path: 'soutenance/new/:id', component: CreateSoutenanceForProjetComponent},
-  {path: 'gestion-sessions', component: GestionSessionsComponent},
-  {path: 'gestion-annees', component: GestionAnneesComponent},
-  {path: 'gestion-utilisateurs', component: GestionUtilisateursComponent},
   {path: 'session/rapport/:id', component: GenerateRapportComponent},
 ];
 
