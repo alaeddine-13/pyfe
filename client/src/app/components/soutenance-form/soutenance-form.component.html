@@ -21,7 +21,7 @@
         <div class="wrap-input2 validate-input">
           <label class="form-check-label" for="session">Session</label>
           <select formControlName="session" id="session">
-            <option *ngFor="let c of sessions" [ngValue]="c.id">{{c|show: 'nom,annee'}}</option>
+            <option *ngFor="let c of sessions" [ngValue]="c.session_id">{{c|show: 'nom,annee'}}</option>
           </select>
           <span class="focus-input2"></span>
         </div>

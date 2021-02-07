@@ -66,9 +66,6 @@ export class SoutenanceFormComponent implements OnInit {
   
     initSoutenanceForm() {
       this.soutenanceForm = this.fb.group({
-        rapport: [null, Validators.compose([
-          Validators.required
-        ])],
         salle: [null, Validators.compose([
           Validators.required
         ])],

@@ -17,7 +17,10 @@ export class SoutenanceService {
     }
 
     async create(createSoutenanceDto: CreateSoutenanceDto) {
+        console.log("dto", createSoutenanceDto)
         let soutenance = this.soutenanceRepository.create(createSoutenanceDto);
+        console.log("entity", soutenance)
+        
         soutenance = await this.soutenanceRepository.save(soutenance);
         await this.projetRepository.update(
             {id: +createSoutenanceDto.projet},
