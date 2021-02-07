@@ -10,8 +10,11 @@ import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.c
 import {ProjetDisplayComponent} from './pages/projet-display/projet-display.component';
 import {UserDisplayComponent} from './pages/user-display/user-display.component';
 import {CreateSoutenanceForProjetComponent} from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
+import { DatatableComponent } from './components/datatable/datatable.component';
+import { ProjetListComponent } from './pages/projet-list/projet-list.component';
 
 const routes: Routes = [
+  {path: '', component: ProjetListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'annee', component: AnneeFormComponent},
   {path: 'annee/:id', component: AnneeFormComponent},
