@@ -1,53 +1,55 @@
 <div class="container-contact2">
-    <div class="wrap-contact2">
-      <form (ngSubmit)="onCreateClick()" [formGroup]="soutenanceForm" class="contact2-form validate-form">
-        <h2 class="contact2-form-title">
-          Nouvelle Soutenance
-        </h2>
-        <h3 class="contact2-form-title">
-            Pour le projet :
-        </h3>
-        <app-projet-item [projet] = "projet" [showActions] = "false" 
-        fxLayout="row" fxLayoutAlign="center center">
-        </app-projet-item>
+  <div class="wrap-contact2">
+    <form (ngSubmit)="onCreateClick()" [formGroup]="soutenanceForm" class="contact2-form validate-form">
+      <h2 *ngIf="!projet.projet_soutenanceId" class="contact2-form-title">
+        Nouvelle soutenance
+      </h2>
+      <h2 *ngIf="projet.projet_soutenanceId" class="contact2-form-title">
+        Modification de la soutenance
+      </h2>
+      <h3 class="contact2-form-title">
+        Pour le projet :
+      </h3>
+      <app-projet-item [projet]="projet" [showActions]="false"
+                       fxLayout="row" fxLayoutAlign="center center">
+      </app-projet-item>
 
-        <app-file-upload (fileUrlEmitter)="setRapportUrl($event)"></app-file-upload>
-  
-        <div class="wrap-input2 validate-input">
-          <input class="input2" formControlName="salle" placeholder="Salle" type="text">
-          <span class="focus-input2"></span>
+      <app-file-upload (fileUrlEmitter)="setRapportUrl($event)"></app-file-upload>
+
+      <div class="wrap-input2 validate-input">
+        <input class="input2" formControlName="salle" placeholder="Salle" type="text">
+        <span class="focus-input2"></span>
+      </div>
+
+      <div class="wrap-input2 validate-input">
+        <label class="form-check-label" for="session">Session</label>
+        <select formControlName="session" id="session">
+          <option *ngFor="let c of sessions" [ngValue]="c.id">{{c|show: 'nom,annee'}}</option>
+        </select>
+        <span class="focus-input2"></span>
+      </div>
+      <div class="wrap-input2 validate-input">
+        <input class="input2" formControlName="date" placeholder="Date" type="text">
+        <!--
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="datenaissance">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        -->
+        <span class="focus-input2"></span>
+      </div>
+
+      <div class="container-contact2-form-btn">
+        <div class="wrap-contact2-form-btn">
+          <div class="contact2-form-bgbtn"></div>
+          <!-- TODO: restore this [disabled]="soutenanceForm.valid"-->
+          <button class="contact2-form-btn">
+            Submit
+          </button>
         </div>
-  
-        <div class="wrap-input2 validate-input">
-          <label class="form-check-label" for="session">Session</label>
-          <select formControlName="session" id="session">
-            <option *ngFor="let c of sessions" [ngValue]="c.id">{{c|show: 'nom,annee'}}</option>
-          </select>
-          <span class="focus-input2"></span>
-        </div>
-        <div class="wrap-input2 validate-input">
-          <input class="input2" formControlName="date" placeholder="Date" type="text">
-          <!--
-            <mat-form-field appearance="fill">
-              <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepicker]="picker" formControlName="datenaissance">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          -->
-          <span class="focus-input2"></span>
-        </div>
-  
-        <div class="container-contact2-form-btn">
-          <div class="wrap-contact2-form-btn">
-            <div class="contact2-form-bgbtn"></div>
-            <!-- TODO: restore this [disabled]="soutenanceForm.valid"-->
-            <button class="contact2-form-btn">
-              Créer la soutenance
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
-  
+</div>

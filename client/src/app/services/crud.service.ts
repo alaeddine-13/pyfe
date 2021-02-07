@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class CrudService {
   }
 
 
-  update(url: string, id: string, values: any) {
+  update(url: string, id: any, values: any) {
     return this.http.put(url + '/' + id, values);
   }
 
