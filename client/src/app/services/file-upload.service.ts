@@ -10,9 +10,8 @@ export class FileUploadService {
   constructor(
     private http: HttpClient
   ) { }
-  
+
   fileUpload(fileForm: FormData) {
-    console.log('file uploading');
     return this.http.post(BASE_API + UPLOAD, fileForm);
    }
 }

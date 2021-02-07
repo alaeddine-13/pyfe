@@ -11,7 +11,7 @@
         fxLayout="row" fxLayoutAlign="center center">
         </app-projet-item>
 
-        <app-file-upload></app-file-upload>
+        <app-file-upload (fileUrlEmitter)="setRapportUrl($event)"></app-file-upload>
   
         <div class="wrap-input2 validate-input">
           <input class="input2" formControlName="salle" placeholder="Salle" type="text">

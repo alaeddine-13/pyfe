@@ -66,8 +66,4 @@ export class ProjetItemComponent implements OnInit {
     );
   }
 
-  reload(){
-    this.crudService.reload()
-  }
-
 }

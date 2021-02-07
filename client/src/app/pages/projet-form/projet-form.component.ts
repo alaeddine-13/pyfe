@@ -45,6 +45,7 @@ export class ProjetFormComponent implements OnInit {
       etudiant: this.authService.getLoggedInUser().id,
       statut: StatutProjetEnum.ENCOURS
     }
+    console.log(PROJET, projet)
     this.crudService.post(BASE_API + PROJET, projet
       ).subscribe(
       (data) => {
