@@ -10,16 +10,20 @@ import {SoutenanceListComponent} from './pages/soutenance-list/soutenance-list.c
 import {ProjetDisplayComponent} from './pages/projet-display/projet-display.component';
 import {UserDisplayComponent} from './pages/user-display/user-display.component';
 import {CreateSoutenanceForProjetComponent} from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
-import { DatatableComponent } from './components/datatable/datatable.component';
-import { ProjetListComponent } from './pages/projet-list/projet-list.component';
+import {ProjetListComponent} from './pages/projet-list/projet-list.component';
 import {GestionSessionsComponent} from './pages/gestion-sessions/gestion-sessions.component';
-import {GestionAnneesComponent} from "./pages/gestion-annees/gestion-annees.component";
-import {GestionUtilisateursComponent} from "./pages/gestion-utilisateurs/gestion-utilisateurs.component";
+import {GestionAnneesComponent} from './pages/gestion-annees/gestion-annees.component';
+import {GestionUtilisateursComponent} from './pages/gestion-utilisateurs/gestion-utilisateurs.component';
+import {PermissionGuard} from './guards/permission.guard';
 
 const routes: Routes = [
   {path: '', component: ProjetListComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'annee', component: AnneeFormComponent},
+  {
+    path: 'annee', component: AnneeFormComponent, canActivate: [PermissionGuard], data: {
+      role: 'etudiant'
+    }
+  },
   {path: 'annee/:id', component: AnneeFormComponent},
   {path: 'session', component: SessionFormComponent},
   {path: 'session/:id', component: SessionFormComponent},
@@ -36,6 +40,7 @@ const routes: Routes = [
   {path: 'gestion-utilisateurs', component: GestionUtilisateursComponent},
 
 ];
+
 /*   { path: '**', component: NF404Component }, */
 @NgModule({
   imports: [
@@ -45,6 +50,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
 
 export const ROUTING = RouterModule.forRoot(routes);
