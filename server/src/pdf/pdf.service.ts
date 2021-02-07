@@ -11,17 +11,16 @@ export class PdfService {
     }
     async generatePDF(values){
 
-        console.log(values);
-
         let template = await fs.promises.readFile('./src/pdf/table.ejs', 'utf-8');
         let html = await render(template, values);
 
+
         const options = {
-            format: "A4",
+            format: "A3",
             orientation: "portrait"
         }
         
-        const filename = `report_${Date.now()}.pdf`
+        const filename = `session_${Date.now()}.pdf`
         const dir = '/tmp'
 
         const createResult = pdf.create(html, options);

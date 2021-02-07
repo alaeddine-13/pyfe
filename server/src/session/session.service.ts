@@ -63,7 +63,7 @@ export class SessionService {
     };
 
     // Changes SQL join result to a JSON representation of the pages
-    rows = rows.map(row => { return { ...row, time: moment(row.date).format("hh:mm"), date: moment(row.date).format("DD-MM-YYYY")}});
+    rows = rows.map(row => { return { ...row, temps: moment(row.date).format("hh:mm"), date: moment(row.date).format("DD-MM-YYYY")}});
 
     let bySalles = groupBy(rows, 'salle');
 
