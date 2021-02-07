@@ -36,4 +36,9 @@ export class SessionController {
   remove(@Param('id') id: string) {
     return this.sessionService.remove(+id);
   }
+
+  @Get('pdf/:id')
+  generatePDF(@Param('id') id: string){
+    return this.sessionService.generatePDF(+id);
+  }
 }

@@ -11,6 +11,7 @@ import {SessionModule} from './session/session.module';
 import {ProjetModule} from './projet/projet.module';
 import {SoutenanceModule} from './soutenance/soutenance.module';
 import { UserModule } from './user/user.module';
+import { PdfService } from './pdf/pdf.service';
 
 dotenv.config();
 
@@ -36,7 +37,7 @@ dotenv.config();
     UserModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PdfService],
 })
 export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer): any {

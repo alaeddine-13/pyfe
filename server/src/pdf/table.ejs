@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Session</title>
+    <style>
+        p{
+            text-align: center
+        }
+
+        table, th, td {
+            border: 1.5px solid black;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        table {
+            width: 650px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        td.time {
+            width: 135px;
+        }
+
+        td.champ {
+            width: 200px;
+        }
+
+        td.valeur {
+            width: 315px;
+        }
+
+        body {
+            height: 1075px;
+            width: 759px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            border: solid black;
+            border-width: thin;
+        }
+    </style>
+</head>
+<body>
+
+<% for(let i =0; i<pages.length; i++){ %>
+
+<img src="./insat-header.jpg">
+<p>
+    P.F.E INGENIEURS SESSION <%= pages[i].nom_session %>
+    <br>
+    SALLE <%= pages[i].salle%>
+</p>
+<table>
+    <tbody>
+
+    <!-- Entête session -->
+    <tr>
+        <td style="text-align: center;"> Filiere : <%= pages[i].filiere %></td>
+        <td style="text-align: center;"> Session : G2</td>
+        <td style="text-align: center;"> Date: <%= pages[i].date %></td>
+    </tr>
+    <tr>
+        <td style="text-align: center;" colspan="3"> President du jury: <%= pages[i].president_jury%></td>
+    </tr>
+
+    <!-- Les soutenances -->
+    <% for(let j =0; j<pages[i].soutenances.length; j++){ %>
+    <tr>
+        <td class="time" rowspan="6"> <%= pages[i].soutenances[j].temps %> </td>
+        <td style="background-color: #928c8c"> Candidat</td>
+        <td style="background-color: #928c8c"> <%= pages[i].soutenances[j].candidat %> </td>
+    </tr>
+    <tr>
+        <td class="champ"> Sujet</td>
+        <td class="valeur"> <%= pages[i].soutenances[j].sujet %></td>
+    </tr>
+    <tr>
+        <td> Entreprise</td>
+        <td> <%= pages[i].soutenances[j].entreprise %></td>
+    </tr>
+    <tr>
+        <td> Responsable à l'entreprise</td>
+        <td> <%= pages[i].soutenances[j].responsable_entreprise %></td>
+    </tr>
+    <tr>
+        <td> Responsable à l'INSAT</td>
+        <td> <%= pages[i].soutenances[j].responsable_insat %></td>
+    </tr>
+    <tr>
+        <td> Examinateur</td>
+        <td> <%= pages[i].soutenances[j].examinateur %></td>
+    </tr>
+    <% } %>
+    </tbody>
+
+</table>
+
+<% } %>
+
+</body>
+</html>

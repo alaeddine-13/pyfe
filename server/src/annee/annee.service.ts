@@ -23,7 +23,8 @@ export class AnneeService {
   }
 
   async findById(id: number) {
-    return await this.anneeRepository.findOne({ id });
+    const res = await this.anneeRepository.findOne({ id });
+    return res;
   }
 
   async update(id: number, updateAnneeDto: UpdateAnneeDto) {
