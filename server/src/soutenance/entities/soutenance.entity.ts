@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn, JoinColumn} from 'typeorm';
 import {ProjetEntity} from '../../projet/entities/projet.entity';
 import {SessionEntity} from '../../session/entities/session.entity';
 
@@ -23,9 +23,6 @@ export class SoutenanceEntity {
     @OneToOne(() => ProjetEntity, projet => projet.soutenance)
     @JoinColumn()
     projet: ProjetEntity;
-
-    @Column()
-    projetId: number;
 
     @Column()
     sessionId: number;
