@@ -12,7 +12,7 @@ import {ProjetModule} from './projet/projet.module';
 import {SoutenanceModule} from './soutenance/soutenance.module';
 import { UserModule } from './user/user.module';
 import { FileUploadModule } from './file-upload/file-upload.module';
-import { MulterModule } from '@nestjs/platform-express';
+// import { MulterModule } from '@nestjs/platform-express';
 
 dotenv.config();
 
@@ -38,7 +38,7 @@ dotenv.config();
     SoutenanceModule,
     UserModule,
     FileUploadModule,
-    MulterModule
+    // MulterModule
   ],
   controllers: [AppController],
   providers: [AppService],
