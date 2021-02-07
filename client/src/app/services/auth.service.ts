@@ -24,10 +24,16 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('token');
+    return localStorage.getItem('token')!==null;
+  }
+
+  isNotAuthenticated(): boolean {
+    const result = localStorage.getItem('token')===null;
+    return result
   }
 
   isAdmin(): boolean {
