@@ -22,6 +22,7 @@ export class ProjetDisplayComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.projet = {};
     this.getProjet();
+    this.crudService.behaviorSubject.subscribe(update=>update === true ? this.getProjet() : '');
   }
 
   getProjet() {

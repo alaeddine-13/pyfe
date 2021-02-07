@@ -39,7 +39,7 @@ export class UserFormComponent implements OnInit {
     if(!('filiere' in userData) || !userData.filiere){
       userData.filiere = ''
     }
-    console.log(userData)
+    console.log('create user', userData)
     this.authService.createUser(userData).subscribe(
       (data) => {
         console.log(data);

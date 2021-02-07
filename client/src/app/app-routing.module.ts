@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'projet-edit', component: ProjetFormComponent, canActivate: [PermissionGuard], data: {
-      role: 'admin'
+      role: 'etudiant'
     }
   },
   {
