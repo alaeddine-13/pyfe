@@ -1,8 +1,11 @@
 <div class="container-contact2">
   <div class="wrap-contact2">
-    <form (ngSubmit)="onCreateClick()" [formGroup]="sessionForm" class="contact2-form validate-form">
-      <h2 class="contact2-form-title">
+    <form (ngSubmit)="onSubmitClick()" [formGroup]="sessionForm" class="contact2-form validate-form">
+      <h2 *ngIf="!sessionId" class="contact2-form-title">
         Nouvelle session
+      </h2>
+      <h2 *ngIf="sessionId" class="contact2-form-title">
+        Modification de la session
       </h2>
 
       <div class="wrap-input2 validate-input">
@@ -25,28 +28,19 @@
         <span class="focus-input2"></span>
       </div>
 
-      <div class="wrap-input2 validate-input">
-
-        <nz-select
-
-          formControlName="annee"
-          nzAllowClear
-          nzPlaceHolder="Choisir une année universitaire">
-
-          <nz-option *ngFor="let annee of annees"
-                     [nzLabel]="annee.annee"
-                     [nzValue]="annee.id">
-          </nz-option>
-        </nz-select>
-
-
-      </div>
+        <div class="wrap-input2 validate-input">
+          <label class="form-check-label" for="annee">Année universitaire :</label>
+          <select formControlName="annee" id="annee">
+            <option *ngFor="let annee of annees" [ngValue]="annee.id">{{annee|show:'annee'}}</option>
+          </select>
+          <span class="focus-input2"></span>
+        </div>
 
       <div class="container-contact2-form-btn">
         <div class="wrap-contact2-form-btn">
           <div class="contact2-form-bgbtn"></div>
           <button [disabled]="!sessionForm.valid" class="contact2-form-btn">
-            Créer la session
+            Submit
           </button>
         </div>
       </div>

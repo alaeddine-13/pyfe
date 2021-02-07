@@ -6,3 +6,4 @@ export const SESSION = 'session';
 export const USER = 'user';
 export const PROJET = 'projet';
 export const SOUTENANCE = 'soutenance';
+export const UPLOAD = 'files/upload';

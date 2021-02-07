@@ -10,11 +10,8 @@
         <app-projet-item [projet] = "projet" [showActions] = "false" 
         fxLayout="row" fxLayoutAlign="center center">
         </app-projet-item>
-  
-        <div class="wrap-input2 validate-input">
-          <input class="input2" formControlName="rapport" placeholder="Rapport" type="text">
-          <span class="focus-input2"></span>
-        </div>
+
+        <app-file-upload (fileUrlEmitter)="setRapportUrl($event)"></app-file-upload>
   
         <div class="wrap-input2 validate-input">
           <input class="input2" formControlName="salle" placeholder="Salle" type="text">
