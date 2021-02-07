@@ -13,7 +13,7 @@ export class UserDatatableComponent implements OnInit {
   users: UserModel[] = []
   columns: [string, string][] = [['nom', 'Nom'], ['prenom', 'Prenom'], ['role', 'Role'], ['email', 'E-mail']]
   linkColumns: [string, string, (id: any) => string][] = [
-    //['id', 'Modifier', (id)=>`/user/${id}`]
+    ['id', 'Profile', (id)=>`/user/${id}`]
   ]
 
   constructor(
