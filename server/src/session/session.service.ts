@@ -6,6 +6,7 @@ import { CreateSessionDto } from './dto/create-session.dto';
 import { UpdateSessionDto } from './dto/update-session.dto';
 import {AnneeEntity} from "../annee/entities/annee.entity";
 import {PdfService} from "../pdf/pdf.service";
+import * as moment from 'moment';
 
 @Injectable()
 export class SessionService {
@@ -51,41 +52,75 @@ export class SessionService {
     return await query.getRawMany()
   }
 
-  async generatePDF(id: number){
-    //TODO: Implement generatePDF
-    let val = {
-      pages:[
-        {
-          nom_session: "SESSION JUIN 2021",
-          salle:"Salle de conferences 3",
-          president_jury:"Mohsen Jury",
-          filiere:"GL",
-          date:"waktli ysahhel rabi",
-          soutenances: [
-            {
-              temps: '09:00',
-              candidat:'Adam',
-              sujet:'PFE sujet',
-              entreprise:'Ramicorp',
-              responsable_entreprise:"resp_entreprise",
-              responsable_insat:'resp_insat',
-              examinateur:'examinateur-1'
-
-            }
-          ]
-        }
-      ]
+  formatResults(rows){
+    let groupBy = function(xs, key) {
+      return xs.reduce(function(rv, x) {
+        (rv[x[key]] = rv[x[key]] || []).push(x);
+        return rv;
+      }, {});
     };
 
-    /*const query = this.sessionRepository
-        .createQueryBuilder('session')
-        .addSelect('session.president', 'president')
-        .addSelect('annee.annee', 'annee')
-        .addSelect('session.nom', 'nom_session')
-        .innerJoin('session.annee', 'annee')
-    console.log(query.getSql());
-    const values = await query.getRawMany();*/
+    // Changes SQL join result to a JSON representation of the pages
+    rows = rows.map(row => { return { ...row, time: moment(row.date).format("hh:mm"), date: moment(row.date).format("DD-MM-YYYY")}});
 
-    return this.pdfService.generatePDF(val);
+    let bySalles = groupBy(rows, 'salle');
+
+
+    Object.keys(bySalles).map(function(key, index) {
+      bySalles[key] = groupBy(bySalles[key],'date');
+      Object.keys(bySalles[key]).map(function(key2, index2){
+        bySalles[key][key2] = groupBy(bySalles[key][key2], 'filiere');
+      })
+    });
+
+    let res = [];
+
+    for (const salle of Object.keys(bySalles)){
+      const dates = Object.keys(bySalles[salle]);
+      for(const date of dates){
+        const filieres = Object.keys(bySalles[salle][date]);
+        for(const filiere of filieres){
+          const page = bySalles[salle][date][filiere];
+          res.push({
+            nom_session: page[0].nom_session,
+            salle: salle,
+            president_jury: page[0].president,
+            filiere: filiere,
+            date: date,
+            soutenances: page
+          });
+        }
+      }
+    }
+
+    return {pages:res};
+  }
+  async generatePDF(id: number){
+
+    console.log(id);
+
+    const query = this.sessionRepository
+        .createQueryBuilder('session')
+        .where("session.id = :id",{ id : id })
+        .select(["session.nom, session. president"])
+        .addSelect('session.nom', 'nom_session')
+        .addSelect('session.president', 'president')
+        .addSelect('soutenance.salle', 'salle')
+        .addSelect('soutenance.date', 'date')
+        .addSelect('concat(etudiant.nom, \' \', etudiant.prenom)', 'candidat')
+        .addSelect('etudiant.filiere', 'filiere')
+        .addSelect('concat(encadrant.nom, \' \', encadrant.prenom)', 'responsable_insat')
+        .addSelect('projet.sujet', 'sujet')
+        .addSelect('projet.societe', 'entreprise')
+        .addSelect('projet.sujet', '')
+        .innerJoin('soutenance', 'soutenance', "soutenance.sessionId = session.id")
+        .innerJoin('projet', 'projet', "projet.soutenanceId = soutenance.id")
+        .innerJoin('user', 'etudiant', "etudiant.id = projet.etudiantId")
+        .innerJoin('user', 'encadrant', "encadrant.id = projet.encadrantId");
+
+    console.log(query.getSql());
+    const values = await query.getRawMany();
+
+    return this.pdfService.generatePDF(this.formatResults(values));
   }
 }

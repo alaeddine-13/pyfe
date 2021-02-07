@@ -39,6 +39,6 @@ export class SessionController {
 
   @Get('pdf/:id')
   generatePDF(@Param('id') id: string){
-    return this.sessionService.generatePDF(+id);
+    return this.sessionService.generatePDF(parseInt(id));
   }
 }

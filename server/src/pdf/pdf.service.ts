@@ -6,14 +6,11 @@ import * as pdf from 'html-pdf';
 @Injectable()
 export class PdfService {
     async generatePDF(values){
+
+        console.log(values);
+
         let template = await fs.promises.readFile('./src/pdf/table.ejs', 'utf-8');
         let html = await render(template, values);
-
-        /*const html_path = "/tmp/rendered_session.html";
-        console.log(`Successfully rendered PDF Session! Saving to ${html_path}`);
-
-        let write_res = await  fs.promises.writeFile(html_path, res);
-        console.log(`Write result: ${write_res}`);*/
 
         const options = {
             format: "A4",
