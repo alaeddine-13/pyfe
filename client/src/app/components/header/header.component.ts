@@ -13,13 +13,21 @@ export class HeaderComponent implements OnInit {
     public authService: AuthService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log("navbar", this.authService.isNotAuthenticated())
+    
+  }
 
   logout() {
     this.authService.logout();
     this.toastr.info('Logged out');
-    this.router.navigate(['login']);
+    window.location.reload()
+  }
+
+  isNotAuthenticated(){
+    return this.authService.isNotAuthenticated()
   }
 }

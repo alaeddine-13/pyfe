@@ -59,20 +59,20 @@
         <li *ngIf="authService.isAuthenticated()" class="nav-item">
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['login']"
+            routerLinkActive="active text-primary"
+          >Login</a
+          >
+        </li>
         <li *ngIf="authService.isAuthenticated()" class="nav-item">
           <a
             class="nav-link"
             [routerLink]="['user', authService.getLoggedInUser().id]"
             routerLinkActive="active text-primary"
           >{{authService.getLoggedInUser().username}}</a
-          >
-        </li>
-        <li *ngIf="!authService.isAuthenticated()" class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="['login']"
-            routerLinkActive="active text-primary"
-          >Login</a
           >
         </li>
       </ul>
