@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'user-edit', component: UserFormComponent},
   {path: 'projet-edit', component: ProjetFormComponent},
   {path: 'projet-edit/:id', component: ProjetFormComponent},
-  {path: 'createUsers', component: CreateUsersComponent},
+  {path: 'create-users', component: CreateUsersComponent},
   {path: 'soutenances', component: SoutenanceListComponent},
   {path: 'projet/:id', component: ProjetDisplayComponent},
   {path: 'user/:id', component: UserDisplayComponent},
