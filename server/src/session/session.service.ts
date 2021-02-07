@@ -7,13 +7,15 @@ import { UpdateSessionDto } from './dto/update-session.dto';
 import {AnneeEntity} from "../annee/entities/annee.entity";
 import {PdfService} from "../pdf/pdf.service";
 import * as moment from 'moment';
+import { FileUploadService } from 'src/file-upload/file-upload.service';
 
 @Injectable()
 export class SessionService {
   constructor(
       @InjectRepository(SessionEntity)
       private sessionRepository: Repository<SessionEntity>,
-      private pdfService: PdfService
+      private pdfService: PdfService,
+      private fileUploadService: FileUploadService
   ) {}
 
   async create(createSessionDto: CreateSessionDto) {
@@ -121,6 +123,7 @@ export class SessionService {
     console.log(query.getSql());
     const values = await query.getRawMany();
 
-    return this.pdfService.generatePDF(this.formatResults(values));
+    const pdf = await this.pdfService.generatePDF(this.formatResults(values));
+    return {url: await this.fileUploadService.upload(pdf)}
   }
 }
