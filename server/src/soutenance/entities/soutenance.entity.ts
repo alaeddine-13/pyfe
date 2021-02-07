@@ -21,4 +21,7 @@ export class SoutenanceEntity {
 
     @OneToOne(() => ProjetEntity, projet => projet.soutenance)
     projet: ProjetEntity;
+
+    @Column()
+    sessionId: number;
 }
