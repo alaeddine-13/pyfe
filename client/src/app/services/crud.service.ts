@@ -8,10 +8,12 @@ import { BehaviorSubject } from 'rxjs';
 export class CrudService {
   behaviorSubject=new BehaviorSubject<boolean>(false);
 
-
-
   constructor(private http: HttpClient) {
 
+  }
+
+  reload(){
+    this.behaviorSubject.next(true)
   }
 
   getAll<T>(url: string) {

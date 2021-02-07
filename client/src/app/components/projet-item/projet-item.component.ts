@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/services/crud.service';
 import { ProjetModel, StatutProjetEnum } from 'src/app/models/projet.model';
 import { UserRoleEnum } from 'src/app/models/user.model';
+import { faCoffee, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-projet-item',
@@ -21,6 +22,7 @@ export class ProjetItemComponent implements OnInit {
   adminRole: string = UserRoleEnum.ADMIN
   valideStatus: string = StatutProjetEnum.VALIDE
   annuleStatus: string = StatutProjetEnum.ANNULE
+  faExternalLinkAlt = faExternalLinkAlt;
   constructor(
     private authService: AuthService,
     private toastrService: ToastrService,
@@ -43,7 +45,7 @@ export class ProjetItemComponent implements OnInit {
     this.crudService.post(BASE_API + PROJET + "/valider/" + `${this.projet.projet_id}`, {}).subscribe(
       (data) => {
         this.toastrService.success("Validé")
-        this.crudService.behaviorSubject.next(true);
+        this.crudService.reload()
       }, (error) => {
         this.toastrService.error("Operation échouée")
         console.log(error);
@@ -56,12 +58,16 @@ export class ProjetItemComponent implements OnInit {
     this.crudService.post(BASE_API + PROJET + "/annuler/" + `${this.projet.projet_id}`, {}).subscribe(
       (data) => {
         this.toastrService.info("Annulé")
-        this.crudService.behaviorSubject.next(true);
+        this.crudService.reload()
       }, (error) => {
         this.toastrService.error("Operation échouée")
         console.log(error);
       }
     );
+  }
+
+  reload(){
+    this.crudService.reload()
   }
 
 }

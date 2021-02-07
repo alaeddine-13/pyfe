@@ -5,10 +5,24 @@
     <mat-card-subtitle>{{projet.statut}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p *ngIf="projet.entreprise"> Entreprise: {{projet.entreprise}} </p>
-    <p *ngIf="projet.date"> Date: {{projet.date}} </p>
-    <p *ngIf="projet.salle"> Salle: {{projet.salle}} </p>
-    <p *ngIf="projet.rapport"> Rapport: {{projet.rapport}} </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-auto">  
+          <p *ngIf="projet.entreprise"> Entreprise: {{projet.entreprise}} </p>
+          <p *ngIf="projet.date"> Date: {{projet.date}} </p>
+          <p *ngIf="projet.salle"> Salle: {{projet.salle}} </p>
+          <p *ngIf="projet.rapport"> Rapport: {{projet.rapport}} </p>
+        </div>
+        <div class="col col-lg-2">
+          <div *ngIf="projet.projet_encadrantId">
+            Encadrant <fa-icon [icon]="faExternalLinkAlt" [routerLink]="['/user', projet.projet_encadrantId]"></fa-icon>
+          </div>
+          <div *ngIf="projet.projet_etudiantId">
+            Etudiant <fa-icon [icon]="faExternalLinkAlt" [routerLink]="['/user', projet.projet_etudiantId]"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
   </mat-card-content>
   <mat-card-actions>
     <div *ngIf="showActions">
@@ -26,3 +40,4 @@
     </div>
   </mat-card-actions>
 </mat-card>
+

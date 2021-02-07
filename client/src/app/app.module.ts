@@ -30,7 +30,7 @@ import { SoutenanceFormComponent } from './components/soutenance-form/soutenance
 import { ShowPipe } from './pipes/show.pipe';
 import { CreateSoutenanceForProjetComponent } from './pages/create-soutenance-for-projet/create-soutenance-for-projet.component';
 import {AuthGuard} from '../guards/auth.guard';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import {AuthGuard} from '../guards/auth.guard';
     ProjetItemComponent,
     SoutenanceFormComponent,
     ShowPipe,
-    CreateSoutenanceForProjetComponent
+    CreateSoutenanceForProjetComponent,
   ],
   imports: [
     FormsModule,
@@ -64,7 +64,8 @@ import {AuthGuard} from '../guards/auth.guard';
     NzSelectModule,
     MatCardModule,
     FlexLayoutModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    FontAwesomeModule
   ],
   providers: [AuthHttpInterceptor, AuthGuard],
   bootstrap: [AppComponent]
