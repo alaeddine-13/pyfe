@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.toastr.info('Logged out');
-    this.router.navigate(['login']);
+    window.location.reload()
   }
 
   isNotAuthenticated(){
