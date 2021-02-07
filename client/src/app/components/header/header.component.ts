@@ -9,13 +9,19 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  isAuthenticated: boolean = false
   constructor(
     public authService: AuthService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log("navbar", this.authService.isAuthenticated())
+    this.isAuthenticated = this.authService.isAuthenticated()
+    
+  }
 
   logout() {
     this.authService.logout();
