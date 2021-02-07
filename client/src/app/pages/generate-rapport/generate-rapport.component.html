@@ -1,0 +1,10 @@
+<div *ngIf="url && url !=='loading'" class="alert alert-success" role="alert">
+    Fichier de rapport généré avec success
+    <a href="{{this.url}}" target="_blank">Télécharger</a>
+</div>
+<div *ngIf="!url" class="alert alert-danger" role="alert">
+    Erreur lors de la génération du fichier de rapport
+</div>
+<div *ngIf="url ==='loading'" class="alert alert-info" role="alert">
+    Génération du rapport
+</div>
