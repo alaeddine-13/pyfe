@@ -67,7 +67,7 @@ const routes: Routes = [
   },
   {
     path: 'soutenance/new/:id', component: CreateSoutenanceForProjetComponent, canActivate: [PermissionGuard], data: {
-      role: 'admin'
+      role: 'etudiant'
     }
   },
   {
