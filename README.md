@@ -31,3 +31,5 @@ Les étudiants peuvent chercher d’anciens PFE par mots clés, titre, entrepris
 L’enseignant peut visualiser dans son compte la liste de ces PFE par année universitaire.
 
 L’enseignant peut voir la liste de ses encadrements.
+
+[![Build Status](http://4474ffdda9cf.ngrok.io/tqibadge?projectid=25214)]
